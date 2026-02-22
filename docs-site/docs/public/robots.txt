@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /ne/
+Sitemap: https://arthaadvisory.com/sitemap.xml

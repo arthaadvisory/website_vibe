@@ -1,0 +1,10 @@
+node_modules/
+.DS_Store
+dist/
+.vitepress/cache
+.vitepress/dist
+*.zip
+to_publish.ps1
+/docs-site/node_modules/
+/docs-site/docs/.vitepress/dist/
+/docs-site/docs/.vitepress/cache/

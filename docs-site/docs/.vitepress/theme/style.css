@@ -1,0 +1,1003 @@
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+:root {
+  /* Brand Colors - Artha Green & Blue */
+  --vp-c-brand-1: #147D34;
+  /* Artha Green */
+  --vp-c-brand-2: #2077BC;
+  /* Artha Blue */
+  --vp-c-brand-3: #116b2c;
+  /* Darker Artha Green */
+  --vp-c-brand-soft: rgba(20, 125, 52, 0.05);
+
+  /* Accent Colors - Blue Tones */
+  --vp-c-accent-1: #004080;
+  --vp-c-accent-2: #0056b3;
+  --vp-c-accent-3: #007bff;
+
+  /* Typography */
+  --vp-font-family-base: 'Inter', sans-serif;
+  --vp-font-family-mono: 'Fira Code', monospace;
+
+  /* Layout Offset for Announcement Bar */
+  --vp-layout-top-height: 0px;
+}
+
+/* 1. Global Noise Texture (Premium Feel) */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* 7. Selection Style */
+::selection {
+  background-color: rgba(20, 125, 52, 0.2);
+  color: var(--vp-c-brand-1);
+}
+
+/* 8. Scrollbar Polish */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--vp-c-brand-1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--vp-c-brand-2);
+}
+
+
+/* Nav Button Styling */
+.VPNavBarMenuLink[href*="/contact"] {
+  background: var(--vp-c-brand-1) !important;
+  color: white !important;
+  padding: 0.4rem 1.2rem !important;
+  border-radius: 8px !important;
+  font-weight: 700 !important;
+  transition: all 0.3s ease !important;
+  margin-left: 1rem !important;
+}
+
+.VPNavBarMenuLink[href*="/contact"]:hover {
+  background: var(--vp-c-brand-2) !important;
+  transform: translateY(-2px) !important;
+  text-decoration: none !important;
+}
+
+.dark .VPNavBarMenuLink[href*="/contact"] {
+  background: var(--vp-c-brand-1) !important;
+  color: var(--vp-c-bg) !important;
+}
+
+/* Hide Contact Nav Link on Contact Page */
+.contact-page .VPNavBarMenuLink[href*="/contact"] {
+  display: none !important;
+}
+
+/* Custom Home Hero Styling */
+.vp-doc h1 {
+  color: var(--vp-c-brand-1);
+}
+
+/* Glassmorphism Header (Enhanced) */
+.VPNav {
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-top: none !important;
+  box-shadow: none !important;
+}
+
+.dark .VPNav {
+  background-color: rgba(20, 20, 23, 0.7) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+.VPButton.brand {
+  background-color: var(--vp-c-brand-1);
+  border-color: var(--vp-c-brand-1);
+  color: white !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  box-shadow: 0 4px 6px rgba(20, 125, 52, 0.2);
+}
+
+.VPButton.brand:hover {
+  background-color: var(--vp-c-brand-2);
+  border-color: var(--vp-c-brand-2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(20, 125, 52, 0.3);
+}
+
+.VPButton.medium:hover {
+  transform: translateY(-2px);
+}
+
+/* Layout Adjustments for Fixed Announcement Bar */
+.VPNav {
+  top: var(--vp-layout-top-height) !important;
+}
+
+.VPSidebar {
+  top: calc(var(--vp-nav-height) + var(--vp-layout-top-height)) !important;
+}
+
+.VPContent {
+  padding-top: calc(var(--vp-nav-height) + var(--vp-layout-top-height)) !important;
+}
+
+/* Remove bottom padding on pages that use home-layout for flush CTA-to-footer */
+.VPContent .VPPage,
+.VPContent .vp-doc {
+  padding-bottom: 0 !important;
+}
+
+.announcement-bar {
+  z-index: 200;
+}
+
+/* --- Curve Theme Inspired Polish --- */
+
+/* Headings */
+/* Heads */
+.vp-doc h1 {
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  /* Fluid Typography */
+  margin-bottom: 2rem;
+  border-bottom: 1px dashed var(--vp-c-brand-soft);
+  padding-bottom: 1.5rem;
+  color: var(--vp-c-brand-1);
+  letter-spacing: -0.02em;
+}
+
+.vp-doc h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-top: 4rem;
+  /* High-end whitespace */
+  margin-bottom: 1.5rem;
+  border-bottom: 1px dashed var(--vp-c-divider);
+  padding-bottom: 0.75rem;
+  color: var(--vp-c-text-1);
+}
+
+.vp-doc h3 {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  margin-top: 2.5rem;
+}
+
+/* Paragraphs */
+.vp-doc p {
+  line-height: 1.8;
+  /* Improve readability */
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+  color: var(--vp-c-text-2);
+}
+
+/* 27. Lists Styling */
+.vp-doc ul {
+  list-style: none;
+  padding-left: 1.5rem;
+}
+
+.vp-doc ul>li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.vp-doc ul>li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--vp-c-brand-1);
+  font-weight: bold;
+}
+
+/* 26. Blockquotes */
+.vp-doc blockquote {
+  position: relative;
+  margin: 2.5rem 0;
+  padding: 1.5rem 2rem 1.5rem 3.5rem;
+  border-left: 4px solid var(--vp-c-brand-1);
+  background: linear-gradient(to right, var(--vp-c-bg-soft), transparent);
+  border-radius: 0 12px 12px 0;
+  color: var(--vp-c-text-1);
+  font-style: italic;
+}
+
+.vp-doc blockquote::before {
+  content: "❝";
+  position: absolute;
+  top: 0.5rem;
+  left: 1rem;
+  font-size: 3rem;
+  color: var(--vp-c-brand-soft);
+  opacity: 0.5;
+  line-height: 1;
+}
+
+.vp-doc blockquote p {
+  margin: 0;
+}
+
+/* 29/30. Tables */
+.vp-doc table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: separate;
+  /* Required for sticky header */
+  border-spacing: 0;
+  margin: 2.5rem 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(20, 125, 52, 0.05);
+  /* Softer shadow */
+  overflow: hidden;
+  /* Clips corners */
+}
+
+.vp-doc tr {
+  background-color: var(--vp-c-bg);
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.vp-doc th {
+  background-color: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-1);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  padding: 1rem;
+  border-bottom: 2px solid var(--vp-c-brand-1);
+  /* Sticky Header */
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.vp-doc tr:nth-child(2n) {
+  background-color: rgba(0, 0, 0, 0.01);
+}
+
+.vp-doc tr:hover {
+  background-color: var(--vp-c-brand-soft) !important;
+  transform: scale(1.005);
+  /* Micro-interaction */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 5;
+}
+
+.vp-doc td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+
+
+
+/* Custom Card Style (for manual usage) */
+.s-card {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  padding: 1.8rem;
+  border-radius: 12px;
+  background-color: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-top: 3px solid var(--vp-c-brand-1);
+  box-shadow: 0 4px 20px rgba(20, 125, 52, 0.08);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  margin-bottom: 1.5rem;
+  text-decoration: none !important;
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .s-card {
+    padding: 1.25rem !important;
+  }
+}
+
+/* Ensure text colors inside anchor cards are correct */
+a.s-card {
+  color: inherit !important;
+}
+
+.s-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(20, 125, 52, 0.15);
+  border-color: var(--vp-c-brand-1);
+  background-color: var(--vp-c-bg-mute);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Mobile Menu Improvements */
+@media (max-width: 960px) {
+  .VPNavScreenMenu .VPButton {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .VPNavScreenMenu .link {
+    padding: 12px 0;
+    font-size: 1.1rem;
+  }
+}
+
+
+/* --- Duotone & Image Polish --- */
+
+.hero-image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(20, 125, 52, 0.15);
+  margin: 2rem 0;
+}
+
+.hero-image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  /* subtle duotone effect */
+  filter: grayscale(100%) contrast(1.1) sepia(0.2);
+}
+
+.greenduotone {
+  filter: grayscale(100%) contrast(1.2) brightness(0.8) sepia(1) hue-rotate(80deg) saturate(2);
+}
+
+.hero-image-container:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--vp-c-brand-1);
+  mix-blend-mode: multiply;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.page-header-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  filter: grayscale(40%) contrast(1.1);
+  border: 1px solid var(--vp-c-divider);
+}
+
+.icon-box img {
+  max-width: 64px;
+  height: auto;
+  filter: drop-shadow(0 4px 6px rgba(26, 128, 55, 0.2));
+}
+
+.card-thumb {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  filter: grayscale(30%) sepia(0.1);
+}
+
+/* Custom Wave Dividers */
+.wave-divider {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 4rem 0;
+  /* High whitespace */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' fill='%23147D34' fill-opacity='0.1'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.wave-divider.inverted {
+  transform: rotate(180deg);
+}
+
+/* --- Phase 3: UI Components --- */
+
+/* 36. Primary Video Shimmer */
+.VPButton.brand {
+  position: relative;
+  overflow: hidden;
+}
+
+.VPButton.brand::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.VPButton.brand:hover::after {
+  left: 100%;
+}
+
+/* 37. Secondary Button Ghost */
+.VPButton.medium {
+  background-color: transparent !important;
+  border: 1px solid var(--vp-c-brand-1) !important;
+  color: var(--vp-c-brand-1) !important;
+}
+
+.VPButton.medium:hover {
+  background-color: var(--vp-c-brand-soft) !important;
+}
+
+/* 39. Accordion Icons */
+details[open] summary~* {
+  animation: slideDown 0.3s ease-in-out;
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 44. Tooltips */
+[data-tooltip] {
+  position: relative;
+  cursor: help;
+  border-bottom: 1px dotted var(--vp-c-brand-1);
+}
+
+[data-tooltip]:hover::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.5rem 1rem;
+  background-color: var(--vp-c-text-1);
+  color: var(--vp-c-bg);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin-bottom: 0.5rem;
+}
+
+/* 49. Breadcrumbs Pill */
+.breadcrumbs {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumbs a {
+  padding: 0.2rem 0.8rem;
+  background-color: var(--vp-c-bg-soft);
+  border-radius: 20px;
+  color: var(--vp-c-text-2);
+  transition: all 0.2s;
+}
+
+.breadcrumbs a:hover {
+  background-color: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-1);
+}
+
+
+/* --- Phase 4: Navigation --- */
+
+/* 51. Mega Menu (CSS Grid Override) */
+@media (min-width: 960px) {
+  .VPNav .VPMenu {
+    min-width: 600px !important;
+    padding: 1.5rem !important;
+    border-radius: 16px !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(20px);
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+    box-shadow: 0 10px 40px rgba(20, 125, 52, 0.1) !important;
+  }
+
+  .dark .VPNav .VPMenu {
+    background: rgba(20, 20, 23, 0.95) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  }
+
+  .VPMenuLink {
+    border-radius: 8px;
+    padding: 0.8rem !important;
+    transition: background-color 0.2s;
+  }
+
+  .VPMenuLink:hover {
+    background-color: var(--vp-c-brand-soft) !important;
+  }
+}
+
+/* 53. Active State */
+.VPNavBarMenuLink.active {
+  color: var(--vp-c-brand-1) !important;
+  position: relative;
+}
+
+.VPNavBarMenuLink.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--vp-c-brand-1);
+}
+
+/* 52. Mobile Drawer Polish (Consolidated) */
+.VPNavScreen {
+  transition: background-color 0.25s, opacity 0.25s, visibility 0.25s !important;
+}
+
+/* 54. Search Bar (Spotlight Style) */
+.DocSearch-Button {
+  background-color: rgba(20, 125, 52, 0.05) !important;
+  border-radius: 8px !important;
+  padding: 0 12px !important;
+}
+
+.DocSearch-Button:hover {
+  background-color: rgba(20, 125, 52, 0.1) !important;
+  box-shadow: 0 0 0 2px var(--vp-c-brand-1) !important;
+}
+
+@media (max-width: 960px) {
+
+  /* Force Navigation to be Sticky at Top 0 on Mobile */
+  .VPNav {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1500 !important;
+    /* Above everything else */
+    background-color: var(--vp-c-bg) !important;
+  }
+
+  /* Force Hamburger Clickability */
+  .VPNavBarHamburger {
+    z-index: 1600 !important;
+    pointer-events: auto !important;
+    display: flex !important;
+  }
+
+  /* Fix Search Button Alignment & Interaction */
+  .VPNav .DocSearch-Button {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 44px !important;
+    height: 44px !important;
+    background: transparent !important;
+    border: none !important;
+    z-index: 1600 !important;
+    pointer-events: auto !important;
+  }
+
+  .VPNav .DocSearch-Button .DocSearch-Search-Icon {
+    margin: 0 !important;
+    width: 22px !important;
+    height: 22px !important;
+    color: var(--vp-c-brand-1) !important;
+  }
+
+  .VPNav .DocSearch-Button-Placeholder,
+  .VPNav .DocSearch-Button-Keys {
+    display: none !important;
+  }
+
+  /* Fix Mobile Menu Drawer Layering & Background */
+  .VPNavScreen {
+    z-index: 2000 !important;
+    background-color: var(--vp-c-bg) !important;
+    /* Ensure it overlays the sticky nav when open */
+    position: fixed !important;
+    top: 0 !important;
+    height: 100vh !important;
+    width: 100vw !important;
+  }
+}
+
+/* Newsletter Premium Styles */
+.newsletter-premium {
+  color: white !important;
+}
+
+.newsletter-premium h2 {
+  font-size: 2.2rem !important;
+  font-weight: 800 !important;
+  color: white !important;
+}
+
+.newsletter-premium p {
+  font-size: 1.1rem !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.newsletter-premium input {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  padding: 0.8rem 1.2rem !important;
+  border-radius: 8px !important;
+  flex: 1;
+}
+
+.newsletter-premium button {
+  background: white !important;
+  color: var(--vp-c-brand-1) !important;
+  padding: 0.8rem 2rem !important;
+  border-radius: 8px !important;
+  font-weight: 700 !important;
+}
+
+
+
+
+/* --- Phase 5: Animations --- */
+
+/* 61. Hero Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 40px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+/* 96. Whitespace around CTAs */
+.cta-massive-padding {
+  padding: 8rem 2rem !important;
+  margin: 4rem 0;
+  text-align: center;
+}
+
+/* 101. NEW Badge */
+.badge-new {
+  display: inline-block;
+  padding: 2px 6px;
+  background-color: var(--vp-c-brand-2);
+  color: white;
+  font-size: 10px;
+  font-weight: 800;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.badge-urgent {
+  background-color: #ff4d4d !important;
+  color: white !important;
+}
+
+
+/* 78. Touch Targets & 85. Tap Highlight */
+@media (max-width: 768px) {
+
+  a,
+  button,
+  input,
+  select,
+  textarea,
+  .VPButton {
+    min-height: 44px;
+    min-width: 44px;
+    touch-action: manipulation;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* 79. Horizontal Scroll for Tables */
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+
+  /* 80. Font Size Adjustment */
+  p,
+  li {
+    font-size: 16px;
+    /* Base size increase */
+  }
+
+  /* 83. Image Aspect Ratio */
+  .hero-image {
+    height: 400px !important;
+    /* Taller on mobile */
+  }
+}
+
+/* --- Phase 7: Technical Polish --- */
+
+/* 90. Print Stylesheet */
+@media print {
+
+  .VPNav,
+  .VPFooter,
+  .mobile-sticky-cta,
+  .DocSearch,
+  .VPLocalNav,
+  .VPSidebar {
+    display: none !important;
+  }
+
+  .VPContent,
+  .VPDoc {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+
+  body,
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  li {
+    color: black !important;
+    background: white !important;
+  }
+
+  a {
+    text-decoration: underline !important;
+    color: black !important;
+  }
+
+  /* Show URL after links */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+  }
+}
+
+/* ─── Global Utility Classes ─── */
+/* These replace Tailwind utilities used across markdown pages */
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.py-12 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.max-w-4xl {
+  max-width: 56rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-white {
+  color: #ffffff !important;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.gap-3 {
+  gap: 0.75rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
+}
+
+.grid {
+  display: grid;
+}
+
+.bg-gray-50 {
+  background-color: var(--vp-c-bg-soft);
+}
+
+.border-b {
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+
+.border-gray-200 {
+  border-color: var(--vp-c-divider);
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.tracking-wide {
+  letter-spacing: 0.05em;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.text-red-800 {
+  color: #991b1b;
+}
+
+.text-green-800 {
+  color: #166534;
+}
+
+.text-gray-900 {
+  color: var(--vp-c-text-1);
+}
+
+@media (min-width: 768px) {
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .md\:flex-row {
+    flex-direction: row;
+  }
+}
