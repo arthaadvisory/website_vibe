@@ -16,22 +16,34 @@ Professional VitePress-based website for Artha Advisory.
    ```
    Open `http://localhost:5173` in your browser.
 
-## 📦 How to Publish (cPanel)
+## 📦 How to Publish (cPanel Git Deployment)
 
-Every time you make updates to the content or code, follow these steps to generate a new package for your cPanel hosting:
+This project uses cPanel's Git Version Control for automated deployment. This bypasses the need for ZIP uploads and avoids common false-positive virus alerts.
 
-1. **Run the Publish Script**:
-   From the root directory, run:
+1. **Prerequisite**:
+   - Ensure you have a Git repository set up in your cPanel.
+   - Update `.cpanel.yml` with your actual cPanel username.
+
+2. **Generate Build & Push**:
+   Run the following commands:
    ```powershell
-   .\to_publish.ps1
-   ```
-   *This script will build the latest version and create a `website_publish.zip` file.*
+   # 1. Build the latest version
+   cd docs-site
+   npm run docs:build
+   cd ..
 
-2. **Upload to cPanel**:
-   - Log in to your cPanel -> **File Manager**.
-   - Navigate to `public_html` (or your website folder).
-   - **Upload** the `website_publish.zip` file.
-   - **Extract** the zip file directly into the folder.
+   # 2. Add and commit the changes (including the 'dist' folder)
+   git add .
+   git commit -m "Site update: $(Get-Date -Format 'yyyy-MM-dd HH:mm')"
+
+   # 3. Push to your cPanel remote (e.g., 'cpanel' or 'origin')
+   git push cpanel main
+   ```
+
+3. **Deployment**:
+   cPanel will automatically see the new commit and run the tasks defined in `.cpanel.yml` to move the files into your `public_html` folder.
+
+---
 
 ## 🛠️ After Each Update
 

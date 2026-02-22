@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/arthaadv/public_html/
+    - /bin/cp -R docs-site/docs/.vitepress/dist/* $DEPLOYPATH
