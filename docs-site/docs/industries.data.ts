@@ -3,7 +3,7 @@ import { createContentLoader } from 'vitepress'
 export default createContentLoader('industries/**/*.md', {
     transform(rawData) {
         return rawData
-            .filter(page => !page.url.includes('/index') && !page.url.endsWith('.bak'))
+            .filter(page => page.url !== '/industries/' && !page.url.includes('/index') && !page.url.endsWith('.bak'))
             .map(page => {
                 return {
                     title: page.frontmatter.title || 'Untitled Industry',

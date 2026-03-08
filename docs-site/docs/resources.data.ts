@@ -20,6 +20,10 @@ export default createContentLoader('resources/**/*.md', {
                     'Blog': '/images/gallery/industry-banking.jpg'
                 }
 
+                // Basic reading time calculation based on roughly 200 words per minute
+                const wordCount = page.src ? page.src.split(/\s+/).length : 0
+                const readingTime = Math.max(1, Math.ceil(wordCount / 200))
+
                 return {
                     title: page.frontmatter.title || 'Untitled',
                     url: page.url,
@@ -27,13 +31,21 @@ export default createContentLoader('resources/**/*.md', {
                     date: dateStr,
                     type: type,
                     image: page.frontmatter.image || fallbacks[type] || '/images/home/hero-main.jpg',
-                    icon: page.frontmatter.icon
+                    icon: page.frontmatter.icon,
+                    readingTime: readingTime,
+                    tags: page.frontmatter.tags || []
                 }
             })
             .sort((a, b) => {
                 const dateA = a.date ? new Date(a.date).getTime() : 0
                 const dateB = b.date ? new Date(b.date).getTime() : 0
-                if (dateA || dateB) return dateB - dateA
+
+                // If both dates are valid, sort descending
+                if (!isNaN(dateA) && !isNaN(dateB) && (dateA || dateB)) {
+                    return dateB - dateA
+                }
+
+                // Fallback to alphabetical sorting if dates are missing or invalid
                 return (a.title || '').localeCompare(b.title || '')
             })
     }

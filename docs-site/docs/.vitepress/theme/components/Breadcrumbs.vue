@@ -14,6 +14,17 @@ const crumbs = computed(() => {
     if (text && link) {
       list.push({ text, link })
     }
+  } else {
+    // Auto-detect parents from URL path segments
+    const path = page.value.relativePath.replace(/\.md$/, '').replace(/\/index$/, '')
+    const segments = path.split('/').filter(Boolean)
+    
+    // Add intermediate segments as parent links (skip the last one — it's the current page)
+    for (let i = 0; i < segments.length - 1; i++) {
+      const link = '/' + segments.slice(0, i + 1).join('/') + '/'
+      const text = segments[i].replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
+      list.push({ text, link })
+    }
   }
 
   // Current page

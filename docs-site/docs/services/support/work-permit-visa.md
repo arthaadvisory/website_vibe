@@ -4,6 +4,7 @@ description: Seamless immigration and labor solutions for expatriates and intern
 icon: 🛂
 parent: Services|/services/
 layout: doc
+image: /images/headers/service-legal.jpg
 ---
 
 Attracting global talent and investment requires a smooth immigration path. **Artha Advisory** manages the entire administrative chain for your international team, ensuring that work permits and business visas are processed accurately and in full compliance with the *Immigration Act* and *Labor Act*.

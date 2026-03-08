@@ -4,6 +4,7 @@ description: Specialized entry solutions for multinational companies to establis
 icon: 🏢
 parent: Services|/services/
 layout: doc
+image: /images/headers/service-legal.jpg
 ---
 
 For many global entities, a full-scale subsidiary isn't the immediate goal. Whether you need a **Liaison Office** to represent your brand or a **Branch Office** to execute specific contracts, **Artha Advisory** provides the regulatory roadmap for your entry.

@@ -4,6 +4,7 @@ description: Navigating the Nepal Labor Act 2074 with professional policy design
 icon: 👥
 parent: Services|/services/
 layout: doc
+image: /images/headers/service-hr.jpg
 ---
 
 Our approach ensures HR is a driver of value, not just a cost center. **Artha Advisory** helps businesses professionalize their people management while ensuring strict adherence to Nepal's evolving labor laws.

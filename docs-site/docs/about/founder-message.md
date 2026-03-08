@@ -8,7 +8,7 @@ parent: About Us|/about/
 <PageHeader 
   title="Message from Our Founding Partner" 
   subtitle="Integrity, Insight, and Innovation in Nepal's financial landscape."
-  image="/images/headers/founder-hero.jpg" 
+  image="/images/headers/service-consulting.jpg" 
 />
 
 <div class="container mx-auto px-4 py-8">

@@ -29,24 +29,19 @@ onUnmounted(() => {
 
 <template>
   <div class="announcement-bar">
-    <!-- Desktop Version -->
-    <div class="content desktop-only">
+    <!-- Desktop & Tablet Version -->
+    <div class="content desktop-tablet">
       <span class="badge">CONTACT</span>
       <span class="message">
-        ✉️ arthaadvisory1@gmail.com | 
+        ✉️ <a href="mailto:arthaadvisory1@gmail.com">arthaadvisory1@gmail.com</a> | 
         <a href="https://wa.me/9779855053088?text=Hello%2C%20I%20would%20like%20to%20schedule%20an%20appointment." target="_blank" rel="noopener">Schedule Appointment 📅</a>
       </span>
     </div>
     
-    <!-- Mobile Version (Refined) -->
+    <!-- Phone / Mobile Version -->
     <div class="content mobile-only">
       <div class="contact-item">
-        <span class="icon">✉️</span>
-        <a href="mailto:arthaadvisory1@gmail.com">arthaadvisory1@gmail.com</a>
-      </div>
-      <span class="sep">|</span>
-      <div class="contact-item">
-        <a href="https://wa.me/9779855053088?text=Hello%2C%20I%20would%20like%20to%20schedule%20an%20appointment." target="_blank" rel="noopener">Schedule 📅</a>
+        <a href="https://wa.me/9779855053088?text=Hello%2C%20I%20would%20like%20to%20schedule%20an%20appointment." target="_blank" rel="noopener" class="mobile-schedule-btn">Schedule Appointment 📅</a>
       </div>
     </div>
   </div>
@@ -79,41 +74,49 @@ onUnmounted(() => {
   gap: 0.8rem;
 }
 
-.mobile-only {
-  display: none;
-}
-
 @media (max-width: 960px) {
   .announcement-bar {
     position: relative !important; /* Scrolls away */
     font-size: 0.8rem;
-    padding: 0.7rem 0.5rem;
+    padding: 0.6rem 0.5rem;
     box-shadow: none;
   }
-  .desktop-only {
+}
+
+/* Phones */
+@media (max-width: 640px) {
+  .desktop-tablet {
     display: none;
   }
   .mobile-only {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
     justify-content: center;
     width: 100%;
-    white-space: normal;
-    line-height: 1.4;
   }
-  .contact-item {
+  .mobile-schedule-btn {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0.4rem 1.2rem;
+    border-radius: 99px;
+    font-weight: 700;
+  }
+  .mobile-schedule-btn:hover {
+     background: rgba(255,255,255,0.25);
+  }
+}
+
+/* Tablets & Up */
+@media (min-width: 641px) {
+  .mobile-only {
+    display: none;
+  }
+  .desktop-tablet {
     display: flex;
-    align-items: center;
-    gap: 4px;
   }
-  .sep {
-    opacity: 0.5;
-  }
-  .mobile-only a {
-    color: white;
-    text-decoration: none;
-  }
+}
+
+.mobile-only a, .desktop-tablet a {
+  color: white;
+  text-decoration: none;
 }
 
 .badge {

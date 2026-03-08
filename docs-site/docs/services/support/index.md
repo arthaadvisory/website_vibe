@@ -8,7 +8,9 @@ image: /images/headers/service-legal.jpg
 ---
 
 <div>
+
 ## Our Methodology
+
 We combine digital-first bureaucratic efficiency with deep technical knowledge of Nepalese law.
 
 ```mermaid

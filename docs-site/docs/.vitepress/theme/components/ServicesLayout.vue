@@ -104,27 +104,31 @@ const coreCategories = Object.keys(coreCategoryMeta)
             </a>
         </div>
 
-        <!-- Category Sliders -->
-        <template v-for="category in categories" :key="category">
-            <div v-if="category !== 'Other'" :id="category.toLowerCase().replace(/\s+/g, '-').replace('&', 'and')" class="category-section">
-                <div class="category-header">
-                    <h2 class="category-title">{{ category }}</h2>
-                    <div class="category-line"></div>
-                    <a :href="'/contact?subject=' + category" class="consult-btn">Consult</a>
-                </div>
-                
-                <div class="slider-container">
-                    <div class="services-slider">
-                        <ServiceCard 
-                            v-for="service in groupedServices[category]" 
-                            :key="service.url" 
-                            :service="service" 
-                            class="slider-item"
-                        />
-                    </div>
-                </div>
+        <!-- Browse by Category - Clean Directory -->
+        <div class="browse-section">
+          <div class="browse-header">
+            <span class="browse-label">Browse by Category</span>
+            <h2 class="browse-title">All Services Directory</h2>
+          </div>
+
+          <div class="browse-grid">
+            <div v-for="category in categories" :key="category" v-if="category !== 'Other'" class="browse-category">
+              <a :href="coreCategoryMeta[category]?.url || '#'" class="browse-cat-header">
+                <span class="browse-cat-icon">{{ coreCategoryMeta[category]?.icon || '💼' }}</span>
+                <h3>{{ category }}</h3>
+                <span class="browse-arrow">→</span>
+              </a>
+              <ul class="browse-list">
+                <li v-for="service in groupedServices[category]" :key="service.url">
+                  <a :href="service.url" class="browse-link">
+                    <span v-if="service.icon" class="browse-item-icon">{{ service.icon }}</span>
+                    {{ service.title }}
+                  </a>
+                </li>
+              </ul>
             </div>
-        </template>
+          </div>
+        </div>
     </div>
   </div>
 </template>
@@ -352,66 +356,124 @@ const coreCategories = Object.keys(coreCategoryMeta)
     margin-top: auto;
 }
 
-/* Category Sections & Sliders */
-.category-section {
-    margin-bottom: 4rem;
-    scroll-margin-top: 5rem;
+/* Browse by Category Directory */
+.browse-section {
+  margin-top: 5rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--vp-c-divider);
 }
 
-.category-header {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
+.browse-header {
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
-.category-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin: 0;
-    white-space: nowrap;
+.browse-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--vp-c-brand-1);
+  font-weight: 700;
 }
 
-.category-line {
-    height: 1px;
-    background: var(--vp-c-divider);
-    flex-grow: 1;
+.browse-title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0.5rem 0 0;
+  color: var(--vp-c-text-1);
 }
 
-.consult-btn {
-    font-size: 0.9rem;
-    color: var(--vp-c-brand-1);
-    font-weight: 600;
-    text-decoration: none;
-    border: 1px solid var(--vp-c-brand-1);
-    padding: 0.4rem 1rem;
-    border-radius: 6px;
-    transition: all 0.2s;
+.browse-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
 }
 
-.consult-btn:hover {
-    background: var(--vp-c-brand-1);
-    color: white;
+.browse-category {
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: border-color 0.3s;
 }
 
-.slider-container {
-    overflow-x: auto;
-    padding-bottom: 1.5rem;
-    margin: 0 -24px;
-    padding: 0 24px 1.5rem;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
+.browse-category:hover {
+  border-color: var(--vp-c-brand-soft);
 }
 
-.services-slider {
-    display: flex;
-    gap: 1.5rem;
-    width: max-content;
+.browse-cat-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px solid var(--vp-c-divider);
+  transition: background 0.2s;
 }
 
-.slider-item {
-    width: 300px;
-    flex-shrink: 0;
+.browse-cat-header:hover {
+  background: var(--vp-c-brand-soft);
+}
+
+.browse-cat-icon {
+  font-size: 1.4rem;
+}
+
+.browse-cat-header h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0;
+  flex: 1;
+  color: var(--vp-c-text-1);
+}
+
+.browse-arrow {
+  color: var(--vp-c-brand-1);
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: transform 0.2s;
+}
+
+.browse-cat-header:hover .browse-arrow {
+  transform: translateX(4px);
+}
+
+.browse-list {
+  list-style: none;
+  padding: 0.75rem 0;
+  margin: 0;
+}
+
+.browse-list li {
+  margin: 0;
+}
+
+.browse-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.5rem;
+  text-decoration: none;
+  color: var(--vp-c-text-2);
+  font-size: 0.92rem;
+  transition: all 0.15s;
+}
+
+.browse-link:hover {
+  color: var(--vp-c-brand-1);
+  background: var(--vp-c-brand-soft);
+  padding-left: 1.75rem;
+}
+
+.browse-item-icon {
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .browse-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (min-width: 640px) {

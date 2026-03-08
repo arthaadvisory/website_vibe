@@ -6,7 +6,7 @@ sidebar: false
 <PageHeader 
   title="Frequently Asked Questions" 
   subtitle="Answers to common questions about Tax, Audit, and Company Registration in Nepal."
-  image="/images/headers/faq-hero.jpg" 
+  image="/images/headers/service-legal.jpg" 
 />
 
 <div class="container mx-auto px-4 py-8">
@@ -74,6 +74,6 @@ Yes, we serve clients across Nepal. For audits and physical verifications, our t
 </Accordion>
 
 <Accordion title="How do you charge for your services?">
-Our fees depend on the scope and complexity of the assignment. We follow the **Fee Standards prescribed by ICAN** (Institute of Chartered Accountants of Nepal) for audit engagements. For advisory, we offer retainer or project-based pricing. [Contact us](/contact) for a quote.
+Our fees depend on the scope and complexity of the assignment. We follow the **Fee Standards prescribed by ICAN** (Institute of Chartered Accountants of Nepal) for audit engagements. For advisory, we offer retainer or project-based pricing. <a href="/contact">Contact us</a> for a quote.
 </Accordion>
 </div>

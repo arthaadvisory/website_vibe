@@ -37,58 +37,10 @@ features:
 <div class="home-content-container">
 
 <div class="about-intro" style="text-align: center; max-width: 900px; margin: 4rem auto;">
-  <p style="font-size: 1.15rem; line-height: 1.85; color: var(--vp-c-text-1); margin-bottom: 1.5rem;">
-    Artha Advisory is a premier professional services firm with a strategic presence in <strong style="color: var(--vp-c-brand-1);">Bharatpur, Kathmandu, Pokhara, Biratnagar, and Kawasoti</strong>, dedicated to redefining the landscape of assurance, advisory, and financial consultancy in Nepal. Founded on the principles of integrity, insight, and innovation, we bridge the gap between traditional accounting and the evolving needs of a globalized economy. Our forward-looking vision positions financial services as a catalyst for growth rather than a mere procedural necessity. By moving beyond "box-ticking," we provide value-driven solutions that empower clients across diverse sectors—including manufacturing, hydropower, technology, and the development sector (INGOs/NGOs)—to navigate complex regulatory environments with absolute confidence.
+  <p style="font-size: 1.2rem; line-height: 1.85; color: var(--vp-c-text-1); margin-bottom: 1.5rem;">
+    A premier professional services firm with offices in <strong style="color: var(--vp-c-brand-1);">Bharatpur, Kathmandu, Pokhara, Biratnagar, and Kawasoti</strong> — redefining assurance, advisory, and financial consultancy in Nepal.
   </p>
-  <p style="font-size: 1.1rem; line-height: 1.85; color: var(--vp-c-text-2);">
-    Our strength lies in a synergistic approach that combines the energy and agility of a modern consultancy with the seasoned wisdom of experienced professionals. We leverage innovative practices and creative auditing methodologies to provide deep insights into business performance and sustainability while offering a one-stop solution for tax, financial outsourcing, and strategic risk management. At Artha Advisory, we place our clients' values at the forefront, fostering close collaborations to ensure our strategies are tailored to the unique heartbeat of each organization. We don't just measure success through numbers; we measure it through the sustainable growth and lasting trust we build.
-  </p>
-</div>
-
-<div class="strategic-section" style="margin-top: 5rem;">
-  <h2 style="text-align: center; font-size: 2rem; font-weight: 700; margin-bottom: 3rem;">Strategic Initiatives</h2>
-  
-  <div class="grid-3">
-    <div class="card">
-      <h3>🌱 Corporate Social Responsibility</h3>
-      <ul>
-        <li><strong>Education Support:</strong> Scholarship programs for students in Chitwan.</li>
-        <li><strong>Blood Donation:</strong> Annual camps at our Bharatpur HQ.</li>
-        <li><strong>Financial Literacy:</strong> Free workshops for local SMEs.</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>🎓 Training Academy</h3>
-      <ul>
-        <li><strong>NFRS Training:</strong> 40-hour certification for finance teams.</li>
-        <li><strong>Internship Program:</strong> Structured 3-year articleship producing future leaders.</li>
-        <li><strong>CPD Sessions:</strong> Continuous professional development.</li>
-      </ul>
-    </div>
-
-  </div>
-</div>
-
-<div id="our-journey" style="margin-top: 6rem; padding-top: 2rem; border-top: 1px solid var(--vp-c-divider);">
-  <h2 style="text-align: center; font-size: 2rem; font-weight: 700; margin-bottom: 3rem;">Our Journey</h2>
-  <div class="timeline">
-    <div class="timeline-item">
-      <span class="year">2003</span>
-      <span class="desc">Established as Sole Proprietorship in Bharatpur.</span>
-    </div>
-    <div class="timeline-item">
-      <span class="year">2021</span>
-      <span class="desc">Expansion to Biratnagar.</span>
-    </div>
-    <div class="timeline-item">
-      <span class="year">2024</span>
-      <span class="desc">Expansion to Kathmandu & Kawasoti.</span>
-    </div>
-    <div class="timeline-item">
-      <span class="year">2026</span>
-      <span class="desc">Extension counters in Bharatpur & Pokhara.</span>
-    </div>
-  </div>
+  <a href="#about-full-story" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--vp-c-brand-1); font-weight: 600; text-decoration: none; font-size: 1rem;">Read Our Full Story ↓</a>
 </div>
 
 <div class="explore-section">
@@ -118,6 +70,30 @@ features:
       <h3>🏆 Awards & Recognitions</h3>
       <p>Honoring excellence and commitment to quality.</p>
     </a>
+  </div>
+</div>
+
+<StrategicGrid />
+
+<div id="our-journey" style="margin-top: 6rem; padding-top: 2rem; border-top: 1px solid var(--vp-c-divider);">
+  <h2 style="text-align: center; font-size: 2rem; font-weight: 700; margin-bottom: 3rem;">Our Journey</h2>
+  <Timeline :items="[
+    { year: '2003', desc: 'Established as Sole Proprietorship in Bharatpur.' },
+    { year: '2021', desc: 'Expansion to Biratnagar.' },
+    { year: '2024', desc: 'Expansion to Kathmandu & Kawasoti.' },
+    { year: '2026', desc: 'Extension counters in Bharatpur & Pokhara.' }
+  ]" />
+</div>
+
+<div id="about-full-story" style="margin-top: 6rem; padding-top: 2rem; border-top: 1px solid var(--vp-c-divider);">
+  <h2 style="text-align: center; font-size: 2rem; font-weight: 700; margin-bottom: 2rem;">Our Story</h2>
+  <div style="max-width: 900px; margin: 0 auto;">
+    <p style="font-size: 1.05rem; line-height: 1.85; color: var(--vp-c-text-2); margin-bottom: 1.5rem;">
+      Artha Advisory is a premier professional services firm dedicated to redefining the landscape of assurance, advisory, and financial consultancy in Nepal. Founded on the principles of integrity, insight, and innovation, we bridge the gap between traditional accounting and the evolving needs of a globalized economy. Our forward-looking vision positions financial services as a catalyst for growth rather than a mere procedural necessity. By moving beyond "box-ticking," we provide value-driven solutions that empower clients across diverse sectors—including manufacturing, hydropower, technology, and the development sector (INGOs/NGOs)—to navigate complex regulatory environments with absolute confidence.
+    </p>
+    <p style="font-size: 1.05rem; line-height: 1.85; color: var(--vp-c-text-2);">
+      Our strength lies in a synergistic approach that combines the energy and agility of a modern consultancy with the seasoned wisdom of experienced professionals. We leverage innovative practices and creative auditing methodologies to provide deep insights into business performance and sustainability while offering a one-stop solution for tax, financial outsourcing, and strategic risk management. At Artha Advisory, we place our clients' values at the forefront, fostering close collaborations to ensure our strategies are tailored to the unique heartbeat of each organization. We don't just measure success through numbers; we measure it through the sustainable growth and lasting trust we build.
+    </p>
   </div>
 </div>
 
@@ -222,56 +198,7 @@ features:
   gap: 1.5rem;
 }
 
-/* Timeline Polish */
-.timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  max-width: 700px;
-  margin: 0 auto;
-  position: relative;
-  padding-left: 2rem;
-  border-left: 3px solid var(--vp-c-divider);
-}
-
-.timeline-item {
-  position: relative;
-  padding-left: 1rem;
-}
-
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -2.65rem;
-  top: 0.3rem;
-  width: 1.2rem;
-  height: 1.2rem;
-  background: var(--vp-c-brand-1);
-  border-radius: 50%;
-  border: 4px solid var(--vp-c-bg);
-  transition: all 0.3s ease;
-  box-shadow: 0 0 0 1px var(--vp-c-divider);
-}
-
-.timeline-item:hover::before {
-  transform: scale(1.3);
-  box-shadow: 0 0 0 6px rgba(20, 125, 52, 0.2);
-  background: var(--vp-c-brand-2);
-}
-
-.year {
-  display: block;
-  font-weight: 800;
-  font-size: 1.5rem;
-  color: var(--vp-c-brand-1);
-  margin-bottom: 0.25rem;
-  line-height: 1;
-}
-
-.desc {
-  font-size: 1.1rem;
-  color: var(--vp-c-text-1);
-}
+/* Timeline Component handles Timeline Polish */
 
 /* Layout Container */
 .home-content-container {

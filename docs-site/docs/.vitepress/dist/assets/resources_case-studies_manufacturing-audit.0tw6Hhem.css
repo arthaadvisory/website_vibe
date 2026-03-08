@@ -1,0 +1,1 @@
+.meta-box{display:flex;gap:2rem;background:var(--vp-c-bg-soft);padding:1rem;border-radius:8px;border:1px solid var(--vp-c-divider);margin-bottom:2rem;font-size:.9rem}.meta-box .item strong{color:var(--vp-c-brand)}@media (max-width: 600px){.meta-box{flex-direction:column;gap:.5rem}}

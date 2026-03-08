@@ -1,3 +1,45 @@
+html {
+  scroll-behavior: smooth;
+}
+
+/* ======== Scroll Animations ======== */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered children */
+.animate-on-scroll:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.animate-on-scroll:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+.animate-on-scroll:nth-child(4) {
+  transition-delay: 0.3s;
+}
+
+/* ======== Focus-Visible Accessibility ======== */
+*:focus-visible {
+  outline: 2px solid var(--vp-c-brand-1);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--vp-c-brand-1);
+  outline-offset: 3px;
+}
+
 html,
 body {
   overflow-x: hidden;
@@ -15,6 +57,9 @@ body {
   /* Darker Artha Green */
   --vp-c-brand-soft: rgba(20, 125, 52, 0.05);
 
+  /* Standardized Radii */
+  --vp-border-radius-lg: 16px;
+
   /* Accent Colors - Blue Tones */
   --vp-c-accent-1: #004080;
   --vp-c-accent-2: #0056b3;
@@ -26,6 +71,18 @@ body {
 
   /* Layout Offset for Announcement Bar */
   --vp-layout-top-height: 0px;
+}
+
+/* ======== Dark Mode ======== */
+.dark {
+  --vp-c-brand-1: #34d058;
+  --vp-c-brand-2: #4ac0ff;
+  --vp-c-brand-3: #2ea44f;
+  --vp-c-brand-soft: rgba(52, 208, 88, 0.08);
+
+  --vp-c-accent-1: #4ac0ff;
+  --vp-c-accent-2: #79d0ff;
+  --vp-c-accent-3: #a3e0ff;
 }
 
 /* 1. Global Noise Texture (Premium Feel) */
@@ -289,6 +346,17 @@ body::before {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   position: relative;
   z-index: 5;
+}
+
+.VPHomeHero .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Contact Page Specific Hero Alignment */
+.contact-page .VPHomeHero {
+  padding-top: 6rem !important;
+  padding-bottom: 6rem !important;
 }
 
 .vp-doc td {
@@ -999,5 +1067,73 @@ details[open] summary~* {
 
   .md\:flex-row {
     flex-direction: row;
+  }
+}
+
+/* ======== Print Stylesheet ======== */
+@media print {
+
+  /* Hide non-essential UI */
+  .VPNav,
+  .VPSidebar,
+  .VPLocalNav,
+  .VPFooter,
+  .announcement-bar,
+  .back-to-top,
+  .whatsapp-button,
+  .VPDocFooter,
+  .edit-link,
+  .prev-next,
+  nav,
+  aside {
+    display: none !important;
+  }
+
+  /* Clean layout */
+  .VPDoc .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .VPContent {
+    padding: 0 !important;
+  }
+
+  /* Remove decorative styles */
+  body {
+    font-size: 12pt;
+    line-height: 1.6;
+    color: #000 !important;
+    background: white !important;
+  }
+
+  a {
+    color: #000 !important;
+    text-decoration: underline;
+  }
+
+  /* Show link URLs */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+
+  /* Page breaks */
+  h1,
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  pre,
+  blockquote {
+    page-break-inside: avoid;
+    border: 1px solid #ccc;
   }
 }

@@ -5,6 +5,7 @@ icon: 🏢
 category: Corporate Services & Compliance
 parent: Services|/services/
 layout: doc
+image: /images/headers/service-legal.jpg
 ---
 
 ## Business Entry Strategy

@@ -1,16 +1,49 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { data as resources } from '../../../resources.data.ts'
 import ResourceCard from './ResourceCard.vue'
 
 const categories = ['All', 'Guide', 'Tool', 'Template', 'Blog']
 const activeCategory = ref('All')
+const activeTag = ref('')
+
+// Extract all unique tags from resources
+const allTags = computed(() => {
+  if (!Array.isArray(resources)) return []
+  const tagSet = new Set()
+  resources.forEach(r => {
+    if (r.tags && Array.isArray(r.tags)) {
+      r.tags.forEach(t => tagSet.add(t))
+    }
+  })
+  return Array.from(tagSet).sort()
+})
 
 const filteredResources = computed(() => {
   if (!Array.isArray(resources)) return []
-  if (activeCategory.value === 'All') return resources
-  return resources.filter(r => r.type === activeCategory.value)
+  let result = resources
+  if (activeCategory.value !== 'All') {
+    result = result.filter(r => r.type === activeCategory.value)
+  }
+  if (activeTag.value) {
+    result = result.filter(r => r.tags && r.tags.includes(activeTag.value))
+  }
+  return result
 })
+
+// Pagination
+const ITEMS_PER_PAGE = 9
+const currentPage = ref(1)
+
+const totalPages = computed(() => Math.ceil(filteredResources.value.length / ITEMS_PER_PAGE))
+
+const paginatedResources = computed(() => {
+  const start = (currentPage.value - 1) * ITEMS_PER_PAGE
+  return filteredResources.value.slice(start, start + ITEMS_PER_PAGE)
+})
+
+// Reset to page 1 when filters change
+watch([activeCategory, activeTag], () => { currentPage.value = 1 })
 
 // Get a featured resource (e.g., the latest Guide or a specific one)
 const featuredResource = computed(() => {
@@ -70,7 +103,7 @@ const featuredResource = computed(() => {
     <div class="container pb-16">
       <div class="resources-grid">
         <!-- Loop through resources -->
-        <template v-for="(res, index) in filteredResources" :key="res.url">
+        <template v-for="(res, index) in paginatedResources" :key="res.url">
           <!-- Insert Newsletter Card after 5th item -->
           <div v-if="index === 5" class="newsletter-wrapper">
             <div class="newsletter-banner">
@@ -90,6 +123,25 @@ const featuredResource = computed(() => {
       
       <div v-if="filteredResources.length === 0" class="no-results">
         No resources found for this category.
+      </div>
+
+      <!-- Pagination -->
+      <div v-if="totalPages > 1" class="pagination">
+        <button @click="currentPage = Math.max(1, currentPage - 1)" :disabled="currentPage === 1" class="page-btn">
+          ← Prev
+        </button>
+        <button 
+          v-for="page in totalPages" 
+          :key="page" 
+          @click="currentPage = page" 
+          class="page-btn"
+          :class="{ active: currentPage === page }"
+        >
+          {{ page }}
+        </button>
+        <button @click="currentPage = Math.min(totalPages, currentPage + 1)" :disabled="currentPage === totalPages" class="page-btn">
+          Next →
+        </button>
       </div>
     </div>
 
@@ -153,6 +205,39 @@ const featuredResource = computed(() => {
   background-color: var(--vp-c-brand-1);
   color: white;
   border-color: var(--vp-c-brand-1);
+}
+
+/* Tag Bar */
+.tag-bar {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.tag-pill {
+  padding: 0.3rem 1rem;
+  border-radius: 9999px;
+  background: transparent;
+  border: 1px solid var(--vp-c-divider);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--vp-c-text-3);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tag-pill:hover {
+  border-color: var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1);
+}
+
+.tag-pill.active {
+  background: var(--vp-c-brand-soft);
+  border-color: var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1);
+  font-weight: 600;
 }
 
 /* Featured Card */
@@ -359,5 +444,43 @@ const featuredResource = computed(() => {
   padding: 3rem;
   color: var(--vp-c-text-3);
   font-size: 1.1rem;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.page-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--vp-c-divider);
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-c-text-2);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.page-btn:hover:not(:disabled) {
+  border-color: var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1);
+}
+
+.page-btn.active {
+  background: var(--vp-c-brand-1);
+  color: white;
+  border-color: var(--vp-c-brand-1);
+}
+
+.page-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 </style>

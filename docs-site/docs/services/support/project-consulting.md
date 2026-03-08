@@ -4,6 +4,7 @@ description: Technical support for capital-intensive projects in Energy, Infrast
 icon: 🏗️
 parent: Services|/services/
 layout: doc
+image: /images/headers/service-consulting.jpg
 ---
 
 High-stakes projects require more than just standard accounting; they need industry-specific technical advisory. **Artha Advisory** provides specialized support for infrastructure developers, hydropower companies, and humanitarian agencies, ensuring that your large-scale investments are protected and compliant.

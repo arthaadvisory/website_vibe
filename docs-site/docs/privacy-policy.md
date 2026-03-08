@@ -6,7 +6,7 @@ sidebar: false
 <PageHeader 
   title="Privacy Policy" 
   subtitle="Our commitment to protecting your personal and professional information."
-  image="/images/headers/privacy-hero.jpg" 
+  image="/images/headers/service-audit.jpg" 
 />
 
 <div class="container mx-auto px-4 py-8">

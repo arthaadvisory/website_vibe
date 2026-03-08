@@ -72,25 +72,31 @@ const latestInsights = computed(() => {
     <section class="features-highlight-section">
       <div class="container">
         <div class="features-highlight-grid">
-          <a href="/services/" class="feature-highlight-card" style="--fh-bg: url('/images/headers/service-advisory.jpg')">
+          <a href="/services/" class="feature-highlight-card animate-on-scroll" style="--fh-bg: url('/images/headers/service-advisory.jpg')">
             <div class="fh-content">
-              <div class="fh-icon">📋</div>
+              <div class="fh-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="36" height="36"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+              </div>
               <h3>Comprehensive Services</h3>
               <p>From Audit &amp; Assurance to Business Advisory and Taxation, we offer a full suite of financial solutions.</p>
               <span class="fh-link">View Services →</span>
             </div>
           </a>
-          <a href="/about/team" class="feature-highlight-card" style="--fh-bg: url('/images/home/hero-main.jpg')">
+          <a href="/about/team" class="feature-highlight-card animate-on-scroll" style="--fh-bg: url('/images/home/hero-main.jpg')">
             <div class="fh-content">
-              <div class="fh-icon">👥</div>
+              <div class="fh-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="36" height="36"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+              </div>
               <h3>Expert Team</h3>
               <p>Led by seasoned professionals committed to your financial success and sustainable growth.</p>
               <span class="fh-link">Meet the Team →</span>
             </div>
           </a>
-          <a href="/resources/" class="feature-highlight-card" style="--fh-bg: url('/images/industries/ind-tech.jpg')">
+          <a href="/resources/" class="feature-highlight-card animate-on-scroll" style="--fh-bg: url('/images/industries/ind-tech.jpg')">
             <div class="fh-content">
-              <div class="fh-icon">📚</div>
+              <div class="fh-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="36" height="36"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72l5 2.73 5-2.73v3.72z"/></svg>
+              </div>
               <h3>Knowledge Hub</h3>
               <p>Stay updated with our latest insights, publications, and tax compliance calendar.</p>
               <span class="fh-link">Explore Resources →</span>
@@ -107,20 +113,20 @@ const latestInsights = computed(() => {
         <div class="trusted-logos-wrapper">
           <div class="trusted-logos-track">
              <!-- Original Items -->
-             <div class="trusted-logo-item"><span class="tl-icon">🏦</span><span>Nabil Bank</span></div>
-             <div class="trusted-logo-item"><span class="tl-icon">⚡</span><span>Himalayan Power</span></div>
-             <div class="trusted-logo-item"><span class="tl-icon">🏭</span><span>Chaudhary Group</span></div>
-             <div class="trusted-logo-item"><span class="tl-icon">🛡️</span><span>Nepal Life Insurance</span></div>
-             <div class="trusted-logo-item"><span class="tl-icon">🌐</span><span>WorldLink</span></div>
-             <div class="trusted-logo-item"><span class="tl-icon">🛒</span><span>Bhat-Bhateni</span></div>
+             <div class="trusted-logo-item"><span class="tl-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M4 10v7h3v-7H4zm6 0v7h3v-7h-3zM2 22h19v-3H2v3zm14-12v7h3v-7h-3zm-8.5-9L2 6v2h19V6l-9.5-5z"/></svg></span><span>Nabil Bank</span></div>
+             <div class="trusted-logo-item"><span class="tl-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M11 21h-1l1-7H7.5c-.58 0-.57-.32-.38-.66.19-.34.05-.08.16-.28L11.5 2h1l-1 7h3.5c.49 0 .56.33.47.51l-.07.15C12.96 14.55 11 21 11 21z"/></svg></span><span>Himalayan Power</span></div>
+             <div class="trusted-logo-item"><span class="tl-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg></span><span>Chaudhary Group</span></div>
+             <div class="trusted-logo-item"><span class="tl-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 2.18l7 3.12v4.7c0 4.67-3.13 8.98-7 10.05-3.87-1.07-7-5.38-7-10.05V6.3l7-3.12z"/></svg></span><span>Nepal Life Insurance</span></div>
+             <div class="trusted-logo-item"><span class="tl-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></span><span>WorldLink</span></div>
+             <div class="trusted-logo-item"><span class="tl-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1.003 1.003 0 0020 4H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg></span><span>Bhat-Bhateni</span></div>
              
              <!-- Duplicate Items -->
-             <div class="trusted-logo-item"><span class="tl-icon">🏦</span><span>Nabil Bank</span></div>
-             <div class="trusted-logo-item"><span class="tl-icon">⚡</span><span>Himalayan Power</span></div>
-             <div class="trusted-logo-item"><span class="tl-icon">🏭</span><span>Chaudhary Group</span></div>
-             <div class="trusted-logo-item"><span class="tl-icon">🛡️</span><span>Nepal Life Insurance</span></div>
-             <div class="trusted-logo-item"><span class="tl-icon">🌐</span><span>WorldLink</span></div>
-             <div class="trusted-logo-item"><span class="tl-icon">🛒</span><span>Bhat-Bhateni</span></div>
+             <div class="trusted-logo-item"><span class="tl-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M4 10v7h3v-7H4zm6 0v7h3v-7h-3zM2 22h19v-3H2v3zm14-12v7h3v-7h-3zm-8.5-9L2 6v2h19V6l-9.5-5z"/></svg></span><span>Nabil Bank</span></div>
+             <div class="trusted-logo-item"><span class="tl-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M11 21h-1l1-7H7.5c-.58 0-.57-.32-.38-.66.19-.34.05-.08.16-.28L11.5 2h1l-1 7h3.5c.49 0 .56.33.47.51l-.07.15C12.96 14.55 11 21 11 21z"/></svg></span><span>Himalayan Power</span></div>
+             <div class="trusted-logo-item"><span class="tl-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg></span><span>Chaudhary Group</span></div>
+             <div class="trusted-logo-item"><span class="tl-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 2.18l7 3.12v4.7c0 4.67-3.13 8.98-7 10.05-3.87-1.07-7-5.38-7-10.05V6.3l7-3.12z"/></svg></span><span>Nepal Life Insurance</span></div>
+             <div class="trusted-logo-item"><span class="tl-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></span><span>WorldLink</span></div>
+             <div class="trusted-logo-item"><span class="tl-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1.003 1.003 0 0020 4H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg></span><span>Bhat-Bhateni</span></div>
           </div>
         </div>
       </div>
@@ -135,7 +141,7 @@ const latestInsights = computed(() => {
           </div>
           
           <div class="services-grid-home">
-             <a :href="s.url" class="service-home-card group" v-for="s in coreServices" :key="s.url" :style="{ '--service-bg': 'url(' + s.image + ')' }">
+             <a :href="s.url" class="service-home-card group animate-on-scroll" v-for="s in coreServices" :key="s.url" :style="{ '--service-bg': 'url(' + s.image + ')' }">
                 <div class="service-icon-wrapper">
                     <span class="service-icon">{{ s.icon }}</span>
                 </div>
@@ -156,7 +162,7 @@ const latestInsights = computed(() => {
       <div class="container founder-container">
         <div class="founder-image-side">
           <div class="founder-photo-frame">
-            <img src="/images/team/susmita-pandey.png" alt="CA Susmita Pandey" />
+            <img src="/images/team/susmita-pandey.png" alt="CA Susmita Pandey" loading="lazy" />
           </div>
         </div>
         <div class="founder-text-side">
@@ -182,28 +188,36 @@ const latestInsights = computed(() => {
         </div>
         <div class="partner-grid">
           <div class="partner-card">
-            <div class="partner-icon">🏆</div>
+            <div class="partner-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94A5.01 5.01 0 0011 15.9V19H7v2h10v-2h-4v-3.1a5.01 5.01 0 003.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/></svg>
+            </div>
             <div class="partner-content">
               <h3>Proven Expertise</h3>
               <p>Over 15 years of experience serving diverse industries across Nepal.</p>
             </div>
           </div>
           <div class="partner-card">
-            <div class="partner-icon">⚖️</div>
+            <div class="partner-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            </div>
             <div class="partner-content">
               <h3>Ethical Standards</h3>
               <p>Uncompromising commitment to integrity and regulatory compliance.</p>
             </div>
           </div>
           <div class="partner-card">
-            <div class="partner-icon">🤝</div>
+            <div class="partner-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+            </div>
             <div class="partner-content">
               <h3>Client-Centric</h3>
               <p>Tailored solutions that align with your specific business goals.</p>
             </div>
           </div>
           <div class="partner-card">
-            <div class="partner-icon">💡</div>
+            <div class="partner-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+            </div>
             <div class="partner-content">
               <h3>Technology Driven</h3>
               <p>Leveraging modern tools for accuracy, efficiency, and real-time insights.</p>
@@ -414,12 +428,14 @@ const latestInsights = computed(() => {
     overflow: hidden;
     mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-    width: 100%;
+    width: calc(100% + 2rem);
+    margin: 0 -1rem;
+    padding: 0 1rem;
 }
 
 .logos-grid-track {
     display: flex;
-    gap: 2.5rem;
+    gap: clamp(1.5rem, 5vw, 2.5rem);
     width: max-content;
     animation: scroll-horizontal 20s linear infinite;
     padding-bottom: 0.5rem; /* Space for hover effects if needed */
@@ -509,8 +525,21 @@ const latestInsights = computed(() => {
 }
 
 .fh-icon {
-    font-size: 2rem;
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background: var(--vp-c-brand-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 1rem;
+    color: var(--vp-c-brand-1);
+    transition: background 0.3s ease;
+}
+
+.feature-highlight-card:hover .fh-icon {
+    background: var(--vp-c-brand-1);
+    color: white;
 }
 
 .feature-highlight-card h3 {
@@ -555,18 +584,23 @@ const latestInsights = computed(() => {
     overflow: hidden;
     mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    width: calc(100% + 2rem);
+    margin: 0 -1rem;
+    padding: 0 1rem;
 }
 
 .trusted-logos-track {
     display: flex;
     align-items: center;
-    gap: 3rem;
+    gap: clamp(1.5rem, 5vw, 3rem);
     width: max-content;
     animation: scroll-horizontal 25s linear infinite;
     padding-bottom: 1rem;
 }
 
-.trusted-logos-track:hover {
+.trusted-logos-track:hover,
+.trusted-logos-track:active,
+.trusted-logos-track:focus-within {
     animation-play-state: paused;
 }
 
@@ -593,7 +627,12 @@ const latestInsights = computed(() => {
 }
 
 .tl-icon {
-    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    color: var(--vp-c-brand-1);
 }
 
 /* ======== SERVICES ======== */
@@ -814,10 +853,21 @@ const latestInsights = computed(() => {
 }
 
 .partner-icon {
-    font-size: 2.5rem;
-    margin-bottom: 0;
-    line-height: 1;
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: var(--vp-c-brand-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
+    color: var(--vp-c-brand-1);
+    transition: all 0.3s ease;
+}
+
+.partner-card:hover .partner-icon {
+    background: var(--vp-c-brand-1);
+    color: white;
 }
 
 .partner-content {

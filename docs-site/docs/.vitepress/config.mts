@@ -3,6 +3,18 @@ import { withMermaid } from 'vitepress-plugin-mermaid'
 
 // https://vitepress.dev/reference/site-config
 export default withMermaid(defineConfig({
+  transformPageData(pageData) {
+    const imageUrl = pageData.frontmatter.image || '/og_image_test.jpg'
+    const description = pageData.frontmatter.description || pageData.description || "Nepal's Leading Tax & Audit Firm"
+    const title = pageData.frontmatter.title ? `${pageData.frontmatter.title} | Artha Advisory` : 'Artha Advisory'
+    pageData.frontmatter.head ??= []
+    pageData.frontmatter.head.push(
+      ['meta', { property: 'og:image', content: `https://arthaadvisory.com.np${imageUrl}` }],
+      ['meta', { property: 'og:title', content: title }],
+      ['meta', { property: 'og:description', content: description }],
+      ['meta', { name: 'description', content: description }]
+    )
+  },
   mermaid: {
     theme: 'base',
     themeVariables: {
@@ -20,7 +32,7 @@ export default withMermaid(defineConfig({
   description: "Nepal's Leading Tax & Audit Firm",
 
   sitemap: {
-    hostname: 'https://arthaadvisory.com',
+    hostname: 'https://arthaadvisory.com.np',
     transformItems(items) {
       return items.map((item) => {
         if (item.url.includes('/services/')) {
@@ -34,7 +46,7 @@ export default withMermaid(defineConfig({
       })
     }
   },
-  lastUpdated: true,
+  lastUpdated: false,
 
   // i18n Configuration
   locales: {
@@ -48,15 +60,31 @@ export default withMermaid(defineConfig({
   head: [
     ['link', { rel: 'icon', type: 'image/png', href: '/logo-colored.png' }],
     ['meta', { name: 'theme-color', content: '#147D34' }],
+    ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=5' }],
     ['meta', { name: 'og:type', content: 'website' }],
     ['meta', { name: 'og:locale', content: 'en_US' }],
     ['meta', { name: 'og:site_name', content: 'Artha Advisory' }],
-    ['meta', { name: 'og:image', content: 'https://arthaadvisory.com/og-image.jpg' }],
+    ['link', { rel: 'preload', href: '/images/home/hero-main.jpg', as: 'image' }],
 
     // Fonts Phase 7
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
     ['link', { href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code&display=swap', rel: 'stylesheet' }],
+
+    // Google Analytics
+    [
+      'script',
+      { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-7XWG32RC28' }
+    ],
+    [
+      'script',
+      {},
+      `window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7XWG32RC28');`
+    ],
+
     ['script', { type: 'application/ld+json' },
       JSON.stringify({
         "@context": "https://schema.org",
@@ -121,6 +149,30 @@ export default withMermaid(defineConfig({
               "addressCountry": "NP"
             },
             "telephone": "+977-9855053088"
+          },
+          {
+            "@type": "LocalBusiness",
+            "name": "Artha Advisory - Kawasoti Office",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Infront of Tax Office, Kawasoti",
+              "addressLocality": "Kawasoti",
+              "addressRegion": "Lumbini",
+              "addressCountry": "NP"
+            },
+            "telephone": "+977-9855063088"
+          },
+          {
+            "@type": "LocalBusiness",
+            "name": "Artha Advisory - Chormara Office",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Madyabindu-08, Ranitar",
+              "addressLocality": "Chitwan",
+              "addressRegion": "Bagmati",
+              "addressCountry": "NP"
+            },
+            "telephone": "+977-9855053088"
           }
         ]
       })
@@ -174,5 +226,26 @@ export default withMermaid(defineConfig({
     const { default: createFeed } = await import('../feed.ts')
     await createFeed(config)
   }
+  },
   */
+  vite: {
+    build: {
+      cssCodeSplit: true,
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes('node_modules')) {
+              if (id.includes('mermaid')) return 'vendor-mermaid'
+            }
+          }
+        }
+      }
+    },
+    ssr: {
+      noExternal: ['vitepress-plugin-mermaid', 'mark.js']
+    },
+    optimizeDeps: {
+      include: ['mermaid']
+    }
+  }
 }))

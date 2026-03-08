@@ -2,18 +2,23 @@ import { createContentLoader } from 'vitepress'
 
 export default createContentLoader('services/**/*.md', {
     transform(rawData) {
-        return rawData
+        const services = rawData
             .filter(page => page.url !== '/services/') // Exclude index page
             .map(page => {
                 let category = page.frontmatter.category || 'Other'
 
-                // Derive category from URL if not explicitly set
-                if (page.url.includes('/services/audit/')) category = 'Audit & Assurance'
-                else if (page.url.includes('/services/tax/')) category = 'Taxation & Regulatory'
-                else if (page.url.includes('/services/advisory/')) category = 'Advisory & Strategic Growth'
-                else if (page.url.includes('/services/outsourcing/')) category = 'Financial Outsourcing'
-                else if (page.url.includes('/services/support/')) category = 'Corporate Support'
-                else if (page.url.includes('/services/business-advisory/')) category = 'Business Advisory'
+                // Derive category from URL using a mapping object
+                const categoryMap: Record<string, string> = {
+                    '/services/audit/': 'Audit & Assurance',
+                    '/services/tax/': 'Taxation & Regulatory',
+                    '/services/advisory/': 'Advisory & Strategic Growth',
+                    '/services/outsourcing/': 'Financial Outsourcing',
+                    '/services/support/': 'Corporate Support',
+                    '/services/business-advisory/': 'Business Advisory'
+                }
+
+                const matchedKey = Object.keys(categoryMap).find(key => page.url.includes(key))
+                if (matchedKey) category = categoryMap[matchedKey]
 
                 return {
                     title: page.frontmatter.title || 'Untitled',
@@ -23,9 +28,23 @@ export default createContentLoader('services/**/*.md', {
                     image: page.frontmatter.image,
                     category: category,
                     parent: page.frontmatter.parent,
-                    details: page.frontmatter.details || []
+                    parentLink: matchedKey || null,
+                    details: page.frontmatter.details || [],
+                    keywords: page.frontmatter.keywords || []
                 }
             })
             .sort((a, b) => (a.title || '').localeCompare(b.title || ''))
+
+        // Hydrate sibling relationships: services in the same category
+        const byCategory: Record<string, typeof services> = {}
+        services.forEach(s => {
+            if (!byCategory[s.category]) byCategory[s.category] = []
+            byCategory[s.category].push(s)
+        })
+
+        return services.map(s => ({
+            ...s,
+            siblings: byCategory[s.category]?.filter(sib => sib.url !== s.url).slice(0, 4) || []
+        }))
     }
 })

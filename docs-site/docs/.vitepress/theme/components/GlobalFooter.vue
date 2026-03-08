@@ -26,7 +26,9 @@ const columns = [
     title: 'Legal',
     links: [
       { text: 'Privacy Policy', link: '/privacy-policy' },
-      { text: 'Terms of Service', link: '/terms' }
+      { text: 'Terms of Service', link: '/terms' },
+      { text: 'All Pages', link: '/all-pages' },
+      { text: 'Source Code', link: 'https://github.com/arthaadvisory/website_vibe' }
     ]
   }
 ]
@@ -127,7 +129,9 @@ const copyrightText = `© ${new Date().getFullYear()} Artha Advisory. All rights
   color: #ffffff;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding: 5rem 1.5rem 2rem;
-  margin-top: 0;
+  margin-top: 6rem;
+  position: relative;
+  z-index: 30;
 }
 
 .footer-container {

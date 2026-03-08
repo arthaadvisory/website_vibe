@@ -44,7 +44,12 @@ const typeStyles = computed(() => {
       </p>
 
       <div class="card-footer">
-        <span class="card-date">{{ props.resource.date }}</span>
+        <div class="footer-meta">
+          <span class="card-date">{{ props.resource.date }}</span>
+          <span v-if="props.resource.readingTime" class="card-read-time">
+            <span class="dot">•</span> {{ props.resource.readingTime }} min read
+          </span>
+        </div>
         <div class="arrow-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M5 12h14"></path>
@@ -167,6 +172,26 @@ const typeStyles = computed(() => {
   font-size: 0.8rem;
   color: var(--vp-c-text-3);
   font-weight: 500;
+}
+
+.footer-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-read-time {
+  font-size: 0.8rem;
+  color: var(--vp-c-text-3);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.dot {
+  opacity: 0.5;
+  font-size: 10px;
 }
 
 .arrow-icon {

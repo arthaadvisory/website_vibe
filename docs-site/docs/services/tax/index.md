@@ -75,7 +75,7 @@ graph LR
     B --> C{Value Addition}
     C --> D[Sell Finished Goods]
     D -->|Collect VAT 13%| E(Output Tax)
-    E -->| "Output - Input" | F[Net VAT Payable to IRD]
+    E -->|Output minus Input| F[Net VAT Payable to IRD]
     
     style B fill:#c8e6c9,stroke:#2e7d32
     style E fill:#ffccbc,stroke:#d84315

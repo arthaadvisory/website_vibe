@@ -110,7 +110,7 @@ onMounted(() => {
            <div class="modal-body">
              <div class="apply-section" style="margin-top: 0; padding-top: 0; border-top: none;">
                 <div class="tally-form-container">
-                    <iframe data-tally-src="https://tally.so/embed/aQ6o7E?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" src="https://tally.so/embed/aQ6o7E?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="200" style="height: 80vh;" frameborder="0" marginheight="0" marginwidth="0" title="Job application"></iframe>
+                    <iframe data-tally-src="https://tally.so/embed/5Bz56b?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&formEventsForwarding=1" loading="lazy" width="100%" height="1075" frameborder="0" marginheight="0" marginwidth="0" title="💼 Hiring"></iframe>
                 </div>
              </div>
           </div>
