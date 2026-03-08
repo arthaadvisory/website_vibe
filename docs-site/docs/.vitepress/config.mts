@@ -34,7 +34,7 @@ export default withMermaid(defineConfig({
       })
     }
   },
-  lastUpdated: true,
+  lastUpdated: false,
 
   // i18n Configuration
   locales: {
