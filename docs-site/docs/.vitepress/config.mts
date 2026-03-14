@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { withMermaid } from 'vitepress-plugin-mermaid'
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
 
 // https://vitepress.dev/reference/site-config
 export default withMermaid(defineConfig({
@@ -66,10 +67,9 @@ export default withMermaid(defineConfig({
     ['meta', { name: 'og:site_name', content: 'Artha Advisory' }],
     ['link', { rel: 'preload', href: '/images/home/hero-main.jpg', as: 'image' }],
 
-    // Fonts Phase 7
-    ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
-    ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
-    ['link', { href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code&display=swap', rel: 'stylesheet' }],
+    // Font Preloading
+    ['link', { rel: 'preload', href: '/fonts/FiraCode-Regular.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
+    ['link', { rel: 'preload', href: '/fonts/FiraCode-Bold.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
 
     // Google Analytics
     [
@@ -229,6 +229,62 @@ export default withMermaid(defineConfig({
   },
   */
   vite: {
+    plugins: [
+      ViteImageOptimizer({
+        test: /\.(jpe?g|png|gif|tiff|webp|svg|avif)$/i,
+        exclude: undefined,
+        include: undefined,
+        includePublic: true,
+        logStats: true,
+        ansiColors: true,
+        svg: {
+          multipass: true,
+          plugins: [
+            {
+              name: 'preset-default',
+              params: {
+                overrides: {
+                  cleanupNumericValues: false,
+                  removeViewBox: false, // https://github.com/svg/svgo/issues/1128
+                },
+                cleanupIDs: {
+                  minify: false,
+                  remove: false,
+                },
+                convertPathData: false,
+              },
+            },
+            'sortAttrs',
+            {
+              name: 'addAttributesToSVGElement',
+              params: {
+                attributes: [{ xmlns: 'http://www.w3.org/2000/svg' }],
+              },
+            },
+          ],
+        },
+        png: {
+          // https://sharp.pixelplumbing.com/api-output#png
+          quality: 80,
+        },
+        jpeg: {
+          // https://sharp.pixelplumbing.com/api-output#jpeg
+          quality: 80,
+        },
+        jpg: {
+          // https://sharp.pixelplumbing.com/api-output#jpeg
+          quality: 80,
+        },
+        webp: {
+          // https://sharp.pixelplumbing.com/api-output#webp
+          lossless: true,
+        },
+        avif: {
+          // https://sharp.pixelplumbing.com/api-output#avif
+          lossless: true,
+        },
+      }),
+    ],
     build: {
       cssCodeSplit: false,
       rollupOptions: {
@@ -236,6 +292,7 @@ export default withMermaid(defineConfig({
           manualChunks(id) {
             if (id.includes('node_modules')) {
               if (id.includes('mermaid')) return 'vendor-mermaid'
+              if (id.includes('medium-zoom')) return 'vendor-zoom'
             }
           }
         }

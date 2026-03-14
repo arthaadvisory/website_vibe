@@ -23,7 +23,7 @@ const latestInsights = computed(() => {
 </script>
 
 <template>
-  <div class="home-layout">
+  <main class="home-layout">
     <!-- HERO SECTION -->
     <section class="hero-section">
       <div class="hero-row container">
@@ -77,7 +77,7 @@ const latestInsights = computed(() => {
               <div class="fh-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="36" height="36"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
               </div>
-              <h3>Comprehensive Services</h3>
+              <h2>Comprehensive Services</h2>
               <p>From Audit &amp; Assurance to Business Advisory and Taxation, we offer a full suite of financial solutions.</p>
               <span class="fh-link">View Services →</span>
             </div>
@@ -87,7 +87,7 @@ const latestInsights = computed(() => {
               <div class="fh-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="36" height="36"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
               </div>
-              <h3>Expert Team</h3>
+              <h2>Expert Team</h2>
               <p>Led by seasoned professionals committed to your financial success and sustainable growth.</p>
               <span class="fh-link">Meet the Team →</span>
             </div>
@@ -97,7 +97,7 @@ const latestInsights = computed(() => {
               <div class="fh-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="36" height="36"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72l5 2.73 5-2.73v3.72z"/></svg>
               </div>
-              <h3>Knowledge Hub</h3>
+              <h2>Knowledge Hub</h2>
               <p>Stay updated with our latest insights, publications, and tax compliance calendar.</p>
               <span class="fh-link">Explore Resources →</span>
             </div>
@@ -278,7 +278,7 @@ const latestInsights = computed(() => {
           <a href="/contact" class="btn-white">Book a Consultation</a>
        </div>
     </section>
-  </div>
+  </main>
 </template>
 
 <style scoped>
@@ -370,7 +370,7 @@ const latestInsights = computed(() => {
 
 .hero-subtitle {
     font-size: 1.25rem;
-    color: var(--vp-c-text-2);
+    color: var(--vp-c-text-1);
     margin-bottom: 2.5rem;
     line-height: 1.6;
     max-width: 600px;
@@ -418,7 +418,7 @@ const latestInsights = computed(() => {
 
 .trust-text {
     font-size: 0.8rem;
-    color: var(--vp-c-text-3);
+    color: var(--vp-c-text-2);
     margin-bottom: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -573,7 +573,7 @@ const latestInsights = computed(() => {
 .trusted-label {
     text-align: center;
     font-size: 0.8rem;
-    color: var(--vp-c-text-3);
+    color: var(--vp-c-text-2);
     text-transform: uppercase;
     letter-spacing: 0.08em;
     font-weight: 600;
@@ -648,7 +648,7 @@ const latestInsights = computed(() => {
 }
 
 .section-desc {
-    color: var(--vp-c-text-2);
+    color: var(--vp-c-text-1);
     font-size: 1.125rem;
     max-width: 600px;
     margin: 0 auto;
