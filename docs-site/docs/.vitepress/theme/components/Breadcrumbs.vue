@@ -7,8 +7,15 @@ const { frontmatter, page } = useData()
 const crumbs = computed(() => {
   const list = [{ text: 'Home', link: '/' }]
   
+  // Standardized path normalization
+  const normalizePath = (path) => {
+    return path
+      .replace(/\.html$/, '')
+      .replace(/\/index$/, '')
+      .replace(/\/$/, '') || '/'
+  }
+
   // Custom parent logic from frontmatter
-  // Expected format: "Parent Title|/parent-link/"
   if (frontmatter.value.parent) {
     const [text, link] = frontmatter.value.parent.split('|')
     if (text && link) {
@@ -19,7 +26,7 @@ const crumbs = computed(() => {
     const path = page.value.relativePath.replace(/\.md$/, '').replace(/\/index$/, '')
     const segments = path.split('/').filter(Boolean)
     
-    // Add intermediate segments as parent links (skip the last one — it's the current page)
+    // Add intermediate segments as parent links (skip the last one)
     for (let i = 0; i < segments.length - 1; i++) {
       const link = '/' + segments.slice(0, i + 1).join('/') + '/'
       const text = segments[i].replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())

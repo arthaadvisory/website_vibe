@@ -11,23 +11,30 @@
   RewriteRule ^ - [L]
 
   # ---------------------------------------------------------------
-  # 2. Clean URLs: /path → /path.html
+  # 2. Redirect to trailing slash for consistency
+  # ---------------------------------------------------------------
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_URI} !(.*)\.(.*)$
+  RewriteCond %{REQUEST_URI} !(.*)/$
+  RewriteRule ^(.*)$ $1/ [L,R=301]
+
+  # ---------------------------------------------------------------
+  # 3. Clean URLs: /path/ → /path.html
   # ---------------------------------------------------------------
   RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}.html -f
-  RewriteRule ^(.+?)/?$ $1.html [L]
+  RewriteRule ^(.+)/$ $1.html [L]
 
   # ---------------------------------------------------------------
-  # 3. Directory-index: /path/ → /path/index.html
+  # 4. Directory-index: /path/ → /path/index.html
   # ---------------------------------------------------------------
-  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}/index.html -f
-  RewriteRule ^(.*)$ $1/index.html [L]
-
   RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}index.html -f
   RewriteRule ^(.*)$ $1index.html [L]
 
   # ---------------------------------------------------------------
-  # 4. Fallback: anything unresolved → 404.html
+  # 5. Fallback: anything unresolved → 404.html
   # ---------------------------------------------------------------
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^ /404.html [L,R=404]
 
 </IfModule>

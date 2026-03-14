@@ -19,26 +19,36 @@ const { Layout } = DefaultTheme
 const { frontmatter } = useData()
 const route = useRoute()
 
-// Layout detection
+// Standardized path normalization for SSR/CSR consistency
+const normalizePath = (path) => {
+  return path
+    .replace(/\.html$/, '') // Remove .html
+    .replace(/\/index$/, '') // Remove /index
+    .replace(/\/$/, '') || '/' // Remove trailing slash, fallback to root
+}
+
+const currentPath = computed(() => normalizePath(route.path))
+
+// Layout detection using normalized path
 const layout = computed(() => frontmatter.value.layout || frontmatter.value.type)
+
 const isService = computed(() => {
   if (layout.value === 'service') return true
-  const path = route.path.replace(/\.html$/, '').replace(/\/$/, '')
-  return path.startsWith('/services') && path !== '/services'
+  return currentPath.value.startsWith('/services') && currentPath.value !== '/services'
 })
+
 const isIndustry = computed(() => {
   if (layout.value === 'industry') return true
-  const path = route.path.replace(/\.html$/, '').replace(/\/$/, '')
-  return path.startsWith('/industries') && path !== '/industries'
+  return currentPath.value.startsWith('/industries') && currentPath.value !== '/industries'
 })
+
 const isBlog = computed(() => {
   if (layout.value === 'blog') return true
-  const path = route.path.replace(/\.html$/, '').replace(/\/$/, '')
-  return path.startsWith('/blog') || path.startsWith('/resources/insights')
+  return currentPath.value.startsWith('/blog') || currentPath.value.startsWith('/resources/insights')
 })
+
 const isContact = computed(() => {
-  const path = route.path.replace(/\.html$/, '').replace(/\/$/, '')
-  return path === '/contact'
+  return currentPath.value === '/contact'
 })
 const hasCustomLayout = computed(() => isService.value || isIndustry.value || isBlog.value)
 
@@ -47,10 +57,8 @@ const headerImage = computed(() => {
   if (frontmatter.value.heroImage) return frontmatter.value.heroImage
   if (frontmatter.value.image) return frontmatter.value.image
   
-  const path = route.path.replace(/\.html$/, '').replace(/\/$/, '')
-  
   if (isIndustry.value) {
-    const slug = path.split('/').pop()
+    const slug = currentPath.value.split('/').pop()
     // Map slugs to consolidated folder
     const industryMap = {
       'hydropower': 'hydro',
@@ -67,7 +75,7 @@ const headerImage = computed(() => {
   }
   
   if (isService.value) {
-    const segments = path.split('/')
+    const segments = currentPath.value.split('/')
     const slug = segments.length > 2 ? segments[segments.length - 2] : segments.pop()
     return `/images/headers/service-${slug}.jpg`
   }

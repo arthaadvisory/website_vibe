@@ -16,6 +16,14 @@ const pageTitle = computed(() => props.title || frontmatter.value?.title)
 const pageSubtitle = computed(() => props.subtitle || frontmatter.value?.description)
 const bgImage = computed(() => props.image || frontmatter.value?.heroImage || frontmatter.value?.image || '/images/hero-default.jpg')
 
+// Standardized path normalization
+const normalizePath = (path) => {
+  return path
+    .replace(/\.html$/, '')
+    .replace(/\/index$/, '')
+    .replace(/\/$/, '') || '/'
+}
+
 const breadcrumbs = computed(() => {
   const crumbs = [{ text: 'Home', link: '/' }]
   
@@ -25,7 +33,7 @@ const breadcrumbs = computed(() => {
     crumbs.push({ text, link })
   }
   
-  crumbs.push({ text: pageTitle.value, link: route.path })
+  crumbs.push({ text: pageTitle.value, link: normalizePath(route.path) })
   return crumbs
 })
 </script>
