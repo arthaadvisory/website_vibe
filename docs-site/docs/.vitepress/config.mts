@@ -57,6 +57,21 @@ export default withMermaid(defineConfig({
     },
   },
 
+  // SEO: Inject Canonical Tags
+  transformHtml(code, id, { pageData }) {
+    if (!/[\\/]404\.html$/.test(id)) {
+      let path = pageData.relativePath.replace(/\.md$/, '')
+      if (path.endsWith('index')) {
+        path = path.slice(0, -5)
+      }
+      // Remove trailing slash for consistency with cleanUrls
+      const canonicalUrl = `https://arthaadvisory.com.np/${path}`.replace(/\/$/, '')
+      return code.replace(
+        '</head>',
+        `<link rel="canonical" href="${canonicalUrl}">\n</head>`
+      )
+    }
+  },
 
   head: [
     ['link', { rel: 'icon', type: 'image/png', href: '/logo-colored.png' }],

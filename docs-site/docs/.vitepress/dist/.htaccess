@@ -11,20 +11,22 @@
   RewriteRule ^ - [L]
 
   # ---------------------------------------------------------------
-  # 2. Clean URLs: /path → /path.html  (VitePress cleanUrls output)
+  # 2. Clean URLs: /path → /path.html
   # ---------------------------------------------------------------
   RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}.html -f
   RewriteRule ^(.+?)/?$ $1.html [L]
 
   # ---------------------------------------------------------------
-  # 3. Directory-index URLs: /path/ → /path/index.html
+  # 3. Directory-index: /path/ → /path/index.html
   # ---------------------------------------------------------------
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}/index.html -f
+  RewriteRule ^(.*)$ $1/index.html [L]
+
   RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}index.html -f
-  RewriteRule ^(.+/)$ $1index.html [L]
+  RewriteRule ^(.*)$ $1index.html [L]
 
   # ---------------------------------------------------------------
   # 4. Fallback: anything unresolved → 404.html
-  #    VitePress is static (not SPA), so unknown paths get 404
   # ---------------------------------------------------------------
   RewriteRule ^ /404.html [L,R=404]
 
