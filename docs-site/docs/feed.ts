@@ -3,9 +3,9 @@ import { Feed } from 'feed'
 import { writeFileSync } from 'fs'
 import path from 'path'
 
-const hostname = 'https://arthaadvisory.com'
+const hostname = 'https://arthaadvisory.com.np'
 
-export default async (config) => {
+export default async (config: any) => {
     const feed = new Feed({
         title: 'Artha Advisory Insights',
         description: 'Latest financial updates and expert analysis from Artha Advisory.',

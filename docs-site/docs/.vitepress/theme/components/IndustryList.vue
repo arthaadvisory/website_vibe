@@ -1,5 +1,22 @@
 <script setup>
 import { data as industries } from '../../../industries.data.ts'
+
+const slugToImage = {
+  'hydropower': 'hydro',
+  'real-estate': 'realestate',
+  'ngo-ingo': 'ngo',
+  'tourism-hospitality': 'tourism',
+  'technology': 'tech',
+  'fintech-startups': 'tech',
+  'trading-retail': 'tourism',
+  'capital-markets': 'banking'
+}
+
+function getIndustryBg(url) {
+  const slug = url.split('/').filter(Boolean).pop()
+  const filename = slugToImage[slug] || slug
+  return `url(/images/industries/ind-${filename}.jpg)`
+}
 </script>
 
 <template>
@@ -9,7 +26,7 @@ import { data as industries } from '../../../industries.data.ts'
       :key="ind.url"
       :href="ind.url"
       class="s-card industry-card"
-      :style="{ '--ind-bg': 'url(/images/industries/ind-' + (ind.url.split('/').filter(Boolean).pop() === 'ngo-ingo' ? 'ngo' : (ind.url.split('/').filter(Boolean).pop() === 'hydropower' ? 'hydro' : (ind.url.split('/').filter(Boolean).pop() === 'real-estate' ? 'realestate' : (ind.url.split('/').filter(Boolean).pop() === 'tourism-hospitality' ? 'tourism' : (ind.url.split('/').filter(Boolean).pop() === 'technology' ? 'tech' : ind.url.split('/').filter(Boolean).pop()))))) + '.jpg)' }"
+      :style="{ '--ind-bg': getIndustryBg(ind.url) }"
     >
       <div class="card-content-overlay">
         <span class="ind-icon">{{ ind.icon || '🏭' }}</span>

@@ -1,6 +1,7 @@
 ---
-title: FITTA 2075 Guide
-description: The Complete Guide to Foreign Investment & Technology Transfer Act 2075.
+title: FITTA Guide 2075 - Foreign Investment in Nepal
+description: A comprehensive guide to the Foreign Investment and Technology Transfer Act (FITTA) 2075, procedures, and investment thresholds in Nepal.
+sidebar: false
 ---
 
 # The Complete Guide to Foreign Investment & Technology Transfer Act (FITTA) 2075

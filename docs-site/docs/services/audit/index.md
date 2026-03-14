@@ -79,7 +79,6 @@ To ensure an efficient and high-value audit, have these ready:
 1.  **Trial Balance**: Finalized up to Ashad end.
 2.  **Confirmations**: Balance letters from Debtors/Creditors.
 3.  **Fixed Asset Register**: With physical verification proof.
-3.  **Fixed Asset Register**: With physical verification proof.
 4.  **TDS / VAT Reconciliation**: Proof of trilateral agreement between books, returns, and payments.
 
 ---

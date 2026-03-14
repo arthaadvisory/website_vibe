@@ -1,11 +1,6 @@
 ---
-title: Guidelines on Marketing Professional Services by Professional Accountants (2023)
-description: Official ICAN guidelines regulating marketing, advertising, and publicity for Chartered Accountants and Registered Auditors in Nepal.
-date: 2023-07-17
-author: The Institute of Chartered Accountants of Nepal (ICAN)
-tags: [ICAN, Ethics, Marketing, Compliance, Guidelines]
-icon: 📢
-parent: Guides|/resources/guides/
+title: ICAN Marketing Guidelines 2023 - A Guide
+description: Important marketing and publicity guidelines for Chartered Accountants and Registered Auditors in Nepal as prescribed by ICAN.
 sidebar: false
 ---
 

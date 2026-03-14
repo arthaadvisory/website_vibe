@@ -3,20 +3,34 @@
   Options +FollowSymLinks -MultiViews
   RewriteBase /
 
-  # Handle clean URLs — try the exact path, then .html extension
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}.html -f
-  RewriteRule ^(.*)$ $1.html [L]
+  # ---------------------------------------------------------------
+  # 1. Never rewrite real files or directories (CSS, JS, images, etc.)
+  # ---------------------------------------------------------------
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
 
-  # Handle directory-style URLs (e.g. /services/ → /services/index.html)
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_URI} /$
+  # ---------------------------------------------------------------
+  # 2. Clean URLs: /path → /path.html  (VitePress cleanUrls output)
+  # ---------------------------------------------------------------
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}.html -f
+  RewriteRule ^(.+?)/?$ $1.html [L]
+
+  # ---------------------------------------------------------------
+  # 3. Directory-index URLs: /path/ → /path/index.html
+  # ---------------------------------------------------------------
   RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}index.html -f
-  RewriteRule ^(.*)/$ $1/index.html [L]
+  RewriteRule ^(.+/)$ $1index.html [L]
+
+  # ---------------------------------------------------------------
+  # 4. Fallback: anything unresolved → 404.html
+  #    VitePress is static (not SPA), so unknown paths get 404
+  # ---------------------------------------------------------------
+  RewriteRule ^ /404.html [L,R=404]
+
 </IfModule>
 
-# Fallback to 404.html for truly missing pages
+# Custom error page
 ErrorDocument 404 /404.html
 
 # Enable GZIP compression for performance
@@ -24,7 +38,7 @@ ErrorDocument 404 /404.html
   AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml
 </IfModule>
 
-# Browser caching for static assets
+# Long-lived browser caching for hashed static assets
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType text/css "access plus 1 year"
@@ -34,4 +48,9 @@ ErrorDocument 404 /404.html
   ExpiresByType image/webp "access plus 1 year"
   ExpiresByType image/svg+xml "access plus 1 year"
   ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+# Prevent MIME-type sniffing (security)
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
 </IfModule>

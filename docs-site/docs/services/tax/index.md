@@ -51,7 +51,6 @@ When the Inland Revenue Department (IRD) issues an assessment, you need an exper
 *   **Pre-emptive Planning:** We identify tax risks before they become liabilities.
 *   **Sector Density:** Specialized tax knowledge for Hydropower, BFIs, and Manufacturing.
 *   **Technology First:** We use proprietary Excel-based reconcilers to catch VAT/ETDS errors before filing.
-fying potential fines before they happen.
 
 ### 2. VAT & Custom Duty
 *   **VAT Refund Processing**: Specialized service for exporters and diplomats to recover input VAT credits.

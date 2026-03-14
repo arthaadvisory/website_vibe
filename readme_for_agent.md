@@ -66,22 +66,13 @@ Visit <a href="/contact">our page</a> for more info.
 ```
 
 ### 3. Clean URLs + cPanel/LiteSpeed = 404s
-With `cleanUrls: true`, VitePress generates `/services/tax.html` but the URL is `/services/tax`. LiteSpeed doesn't resolve this automatically. **You MUST add a `.htaccess` in `docs/public/`:**
+With `cleanUrls: true`, VitePress generates folder-based output (e.g. `/services/tax/index.html`) for directory pages and `/services/tax/digital-economy.html` for leaf pages. LiteSpeed doesn't resolve clean URLs automatically. The `.htaccess` in `docs/public/` MUST:
+1. **Pass through real files/dirs first** (prevents rewriting CSS/JS/images)
+2. **Map clean URLs to .html** (`/path` → `/path.html`)
+3. **Handle directory indexes** (`/path/` → `/path/index.html`)
+4. **Fallback to 404.html** (NOT index.html — VitePress is static, NOT an SPA)
 
-```apache
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^(.+)$ $1.html [L]
-
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_URI} /$
-RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}index.html -f
-RewriteRule ^(.+)/$ $1/index.html [L]
-
-ErrorDocument 404 /404.html
-```
+⚠️ **NEVER** use `RewriteRule ^ /index.html [L]` as a catch-all — this serves the homepage for ALL unresolved URLs, making every subpage show homepage content.
 
 ### 4. `lastUpdated: true` Requires Git
 Setting `lastUpdated: true` in config will **crash the build** with `spawn git ENOENT` if `git` is not on the system PATH. Always verify git is available before enabling.
@@ -110,6 +101,27 @@ Don't do `if (id.includes('vue')) return 'vendor-vue'` AND `return 'vendor'` as 
 
 ### 8. Dead Links Block Builds
 With `ignoreDeadLinks: false`, any broken link in any `.md` file will fail the entire build. Always verify links exist before adding them, especially in sitemap/all-pages files.
+
+### 9. `cssCodeSplit: true` Breaks Built Site CSS
+**MUST be `false`** in `vite.build.cssCodeSplit`. With `true`, VitePress's default theme CSS (VPNav, VPNavBar, etc.) gets split into async chunks loaded by JS. The SSR-rendered HTML displays immediately but looks completely unstyled (raw links, no layout) until JS hydrates — and even then, component CSS may still be missing. Setting `false` bundles ALL CSS into a single file that loads with the HTML.
+
+### 10. Stale `dist/` Causes Hash Mismatches
+**ALWAYS clean `dist/` before building.** VitePress does NOT clean the output directory. If you rebuild without cleaning, old HTML files referencing `app.B9KRaqLm.js` coexist with new `app.BvkIQnyu.js`. Result: the page loads HTML but JS fails silently, Vue never hydrates, and CSS applied by JS never loads. The `docs:build` script now auto-cleans via `docs:clean`.
+
+### 11. Data Loader Image Fallbacks Required
+`services.data.ts` MUST provide a fallback for `image`: `page.frontmatter.image || '/images/home/hero-main.jpg'`. Without it, components using `url(s.image)` in dynamic styles generate `url(undefined)`, causing browser requests to `/assets/undefined` (404).
+
+### 12. Industry Slug → Image Filename Mapping
+Not all industry slugs match their image filenames. The mapping in `IndustryList.vue` and `MyLayout.vue` MUST cover all mismatches:
+```js
+const slugToImage = {
+  'hydropower': 'hydro', 'real-estate': 'realestate',
+  'ngo-ingo': 'ngo', 'tourism-hospitality': 'tourism',
+  'technology': 'tech', 'fintech-startups': 'tech',
+  'trading-retail': 'tourism', 'capital-markets': 'banking'
+}
+```
+Available images: `ind-banking`, `ind-education`, `ind-healthcare`, `ind-hydro`, `ind-insurance`, `ind-manufacturing`, `ind-ngo`, `ind-realestate`, `ind-tech`, `ind-tourism`.
 
 ---
 
@@ -217,11 +229,15 @@ import { data as services } from '../../../services.data.ts'
 5. **Verify** direct subpage access (e.g. `/services/tax`) works
 
 ### Build Checklist
+- [ ] Run `npm run docs:build` (auto-cleans dist first)
 - [ ] No dead links (`ignoreDeadLinks: false`)
 - [ ] No missing images in frontmatter
 - [ ] Mermaid diagrams syntax-free
 - [ ] `lastUpdated: false` if no git
 - [ ] `.htaccess` in `docs/public/`
+- [ ] `cssCodeSplit: false` in vite config
+- [ ] Data loaders have image fallbacks
+- [ ] Industry slug→image mapping is complete
 
 ---
 
@@ -260,6 +276,11 @@ The `ContactLayout.vue` handles the Tally embed script injection automatically.
 | Raw `##` showing on page | Missing blank line after HTML/Vue tag |
 | `[link](/path)` showing as text | Markdown link inside Vue slot — use `<a>` |
 | 404 on direct URL visit (cPanel) | Missing `.htaccess` rewrite rules |
+| All subpages show homepage content | `.htaccess` catch-all serving `index.html` instead of `404.html` |
+| Built site unstyled (raw nav links) | `cssCodeSplit: true` — must be `false` |
+| Built site unstyled (no JS hydration) | Stale `dist/` — hash mismatch between HTML and JS files |
+| `url(undefined)` 404s in console | Data loader missing image fallback |
+| Industry image 404s | Missing slug→image mapping in `IndustryList.vue` |
 | "Untitled" card in grid | Data loader not filtering index page |
 | Build fails: `spawn git ENOENT` | `lastUpdated: true` but no git |
 | Build fails: dead links | Link to non-existent `.md` page |

@@ -90,8 +90,8 @@ export default withMermaid(defineConfig({
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "Artha Advisory",
-        "url": "https://arthaadvisory.com",
-        "logo": "https://arthaadvisory.com/logo-colored.png",
+        "url": "https://arthaadvisory.com.np",
+        "logo": "https://arthaadvisory.com.np/logo-colored.png",
         "contactPoint": {
           "@type": "ContactPoint",
           "telephone": "+977-9855053088",
@@ -230,7 +230,7 @@ export default withMermaid(defineConfig({
   */
   vite: {
     build: {
-      cssCodeSplit: true,
+      cssCodeSplit: false,
       rollupOptions: {
         output: {
           manualChunks(id) {

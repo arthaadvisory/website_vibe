@@ -1,6 +1,6 @@
 ---
-title: ICAN Code of Ethics for Professional Accountants (2023)
-description: A comprehensive guide to the ICAN Code of Ethics (2023), including fundamental principles, conceptual framework, and standards for accountants in business.
+title: ICAN Code of Ethics 2023 - Simplified Guide
+description: A simplified overview of the ICAN Code of Ethics 2023 for Chartered Accountants and Registered Auditors in Nepal.
 date: 2026-02-16
 author: Artha Advisory Team
 tags: [ICAN, Ethics, Compliance, PAIB, Audit]

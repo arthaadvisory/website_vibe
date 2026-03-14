@@ -1,6 +1,6 @@
 ---
-title: Transfer Pricing in Nepal
-description: Understanding the new "Arm's Length" requirements for cross-border transactions.
+title: Transfer Pricing in Nepal - Compliance Guide
+description: Understanding transfer pricing regulations, arm's length principle, and documentation requirements for multinational entities in Nepal.
 icon: ↔️
 parent: Guides|/resources/guides/
 sidebar: false

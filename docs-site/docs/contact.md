@@ -1,5 +1,6 @@
 ---
 layout: home
+description: Contact Artha Advisory for expert audit, tax, and strategic consulting services in Nepal. Visit our offices in Kathmandu, Chitwan, Pokhara, Biratnagar, and Kawasoti.
 
 hero:
   name: "Contact Artha Advisory"

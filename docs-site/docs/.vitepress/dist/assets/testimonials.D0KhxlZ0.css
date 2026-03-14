@@ -1,1 +1,0 @@
-.home-content-container{max-width:1152px;margin:0 auto;padding:0 24px}.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem;margin-top:3rem}@media (min-width: 640px){.home-content-container{padding:0 48px}}@media (max-width: 640px){.testimonials-grid{grid-template-columns:1fr}}

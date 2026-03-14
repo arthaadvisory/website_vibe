@@ -34,7 +34,7 @@ export const data = [
     org: "Registered Auditor | ICAN Membership No. 5096 | COP No. 1159",
     group: "Partners",
     avatar: "/images/team/bishnu-bhusal.jpg",
-    email: "info@arthaadvisory.com",
+    email: "arthaadvisory1@gmail.com",
     phone: "+977-9855063088",
     order: 2,
     bio: `
@@ -95,7 +95,7 @@ export const data = [
     org: "Semi-Qualified CA (ICAI, India) | 12+ Years Experience",
     group: "Senior Team",
     avatar: "/images/team/sujan-sapkota.jpg",
-    email: "info@arthaadvisory.com",
+    email: "arthaadvisory1@gmail.com",
     phone: "+977-9855053088",
     order: 4,
     bio: `
@@ -122,7 +122,7 @@ export const data = [
     org: "Semi-Qualified CA (ICAI) | Senior Finance Executive",
     group: "Senior Team",
     avatar: "/images/team/ram-bhandari.jpg",
-    email: "info@arthaadvisory.com",
+    email: "arthaadvisory1@gmail.com",
     order: 5,
     bio: `
       <p>Mr. Ram Prasad Bhandari is a dedicated Finance Consultant with over five years of specialized experience in auditing and financial management across Nepal and India. Currently serving as the <strong>Senior Finance Executive at Soaltee Westend Resort, Chitwan</strong>, he manages complex day-to-day accounting functions, financial reporting, and supervision of accounting staff.</p>
@@ -141,7 +141,7 @@ export const data = [
     org: "MBA Candidate | IPCC Group I (ICAI)",
     group: "Senior Team",
     avatar: "/images/team/dipendra-kafle.jpg",
-    email: "info@arthaadvisory.com",
+    email: "arthaadvisory1@gmail.com",
     order: 6,
     bio: `
       <p>Dipendra Kafle is a multifaceted finance professional currently pursuing an <strong>MBA at the Texas College of Management &amp; IT</strong>. He holds a Bachelor of Business Studies and has successfully completed IPCC Group I from the Institute of Chartered Accountants of India (ICAI).</p>
@@ -161,7 +161,7 @@ export const data = [
     org: "Semi-Qualified CA (ICAN) | Banking Sector Specialist",
     group: "Senior Team",
     avatar: "/images/team/susmita-pandey.png",
-    email: "info@arthaadvisory.com",
+    email: "arthaadvisory1@gmail.com",
     order: 7,
     bio: `
       <p>Anusha Ghimire is a results-driven Audit Manager bringing over <strong>three years of specialized, hands-on audit experience</strong> within Nepal's premier commercial banking and financial sectors. As a semi-qualified Chartered Accountant (ICAN), she possesses deep technical command over Nepal Financial Reporting Standards (NFRS), NRB directives, and statutory compliance frameworks.</p>
@@ -180,7 +180,7 @@ export const data = [
     org: "24+ Years Combined Expertise",
     group: "Senior Team",
     avatar: "/images/team/dharma-dhungana.jpg",
-    email: "info@arthaadvisory.com",
+    email: "arthaadvisory1@gmail.com",
     order: 8,
     bio: `
       <p>Mr. Dharma Raj Dhungana brings over <strong>24 years of combined expertise</strong> in accountancy, taxation, auditing, and financial management. His unique professional profile is built on a strong academic foundation and over <strong>14 years of teaching experience</strong> in government schools and colleges.</p>
@@ -197,7 +197,7 @@ export const data = [
     title: "Audit Associate",
     group: "Senior Team",
     avatar: "/images/team/sanjay-kc.jpg",
-    email: "info@arthaadvisory.com",
+    email: "arthaadvisory1@gmail.com",
     order: 9,
     bio: `
       <p>Sanjay is a key member of our field audit team, responsible for verifying financial records and ensuring compliance with tax regulations.</p>

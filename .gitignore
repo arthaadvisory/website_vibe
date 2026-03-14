@@ -5,3 +5,4 @@ node_modules/
 *.zip
 /docs-site/node_modules/
 /docs-site/docs/.vitepress/cache/
+*.timestamp-*.mjs

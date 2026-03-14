@@ -1,8 +1,6 @@
 ---
-title: Tax Holidays in Nepal (Strategic Guide)
-description: A comprehensive briefing on tax exemptions, concessions, and fiscal incentives for industries in Nepal (2081/82).
-icon: 🌴
-parent: Guides|/resources/guides/
+title: Tax Holidays & Exemptions in Nepal
+description: A guide to tax holidays, concessions, and exemptions available under Section 11 of the Income Tax Act for various industries in Nepal.
 sidebar: false
 ---
 

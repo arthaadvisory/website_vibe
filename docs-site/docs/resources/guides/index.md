@@ -1,6 +1,6 @@
 ---
-title: Essential Guides
-description: Comprehensive reference materials for navigating Nepal's regulatory landscape.
+title: Professional Regulatory Guides
+description: Comprehensive guides on tax, audit, corporate law, and compliance for businesses and practitioners in Nepal.
 layout: doc
 sidebar: false
 icon: 📚

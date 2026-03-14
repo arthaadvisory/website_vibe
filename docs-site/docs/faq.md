@@ -1,5 +1,6 @@
 ---
 title: Frequently Asked Questions
+description: Find answers to common questions about company registration, taxation, VAT, and audit compliance in Nepal.
 sidebar: false
 ---
 

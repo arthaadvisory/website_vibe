@@ -1,6 +1,7 @@
 ---
-title: Customs Duty Rates (Nepal 2081/82)
-description: Import duty rates for popular items (Vehicles, Electronics, Gold) in Nepal.
+title: Customs & Excise Duty in Nepal
+description: A practical guide to customs procedures, excise duty compliance, and HS code classification for importers and manufacturers in Nepal.
+sidebar: false
 ---
 
 # Customs Duty Rates in Nepal (FY 2081/82)

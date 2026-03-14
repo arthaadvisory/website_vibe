@@ -1,6 +1,6 @@
 ---
-title: Tax Audit Defense Manual
-description: How to handle a Full Audit by the Inland Revenue Department.
+title: Tax Audit & Defense Manual - Nepal
+description: Expert strategies for handling tax audits, IRD assessments, and administrative reviews in Nepal.
 icon: 🛡️
 parent: Resources|/resources/
 image: /images/headers/service-tax.jpg

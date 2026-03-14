@@ -1,6 +1,6 @@
 ---
-title: Tax Knowledge Portal
-description: A centralized hub for tax laws, circulars, and directives.
+title: Tax Knowledge Portal - Nepal
+description: Your gateway to expert tax guides, case studies, and compliance tools for navigating the Nepali tax system.
 icon: 🎓
 parent: Guides|/resources/guides/
 sidebar: false

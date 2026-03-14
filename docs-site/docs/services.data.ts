@@ -25,7 +25,7 @@ export default createContentLoader('services/**/*.md', {
                     url: page.url,
                     description: page.frontmatter.description,
                     icon: page.frontmatter.icon,
-                    image: page.frontmatter.image,
+                    image: page.frontmatter.image || '/images/home/hero-main.jpg',
                     category: category,
                     parent: page.frontmatter.parent,
                     parentLink: matchedKey || null,

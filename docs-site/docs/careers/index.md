@@ -192,38 +192,6 @@ We offer specialized training tracks tailored to your academic path:
 
 ---
 
-## 🚀 Why Join Artha?
-
-Artha Advisory isn't just a workplace; it's a rigorous training ground. Whether you are an aspiring Chartered Accountant (CA) or a seasoned tax professional, we offer a culture of **continuous learning** and **high-impact work**.
-
-### 1. The "Artha Academy" (Training & Development)
-We invest heavily in your growth. Every Friday is "Learning Friday," where we conduct:
-*   **NFRS Deep Dives**: Practical case studies on complex accounting standards.
-*   **Soft Skills**: Presentation, negotiation, and leadership workshops.
-*   **Tech Training**: Excel mastery, Tally Prime, and Audit software certification.
-
-### 2. Structured Training Programs
-We offer specialized training tracks tailored to your academic path:
-
-<div class="grid-2">
-  <div class="card">
-    <h3>📘 CA Students (ICAN/ICAI)</h3>
-    <p>Structured articleship program compliant with ICAN norms, focusing on Statutory Audit and Tax.</p>
-  </div>
-  <div class="card">
-    <h3>🌍 ACCA Students</h3>
-    <p>Practical experience requirement (PER) support with exposure to IFRS/NFRS and global audit practices.</p>
-  </div>
-  <div class="card">
-    <h3>🎓 MBA / MBS Graduates</h3>
-    <p>Management trainee programs focusing on Financial Analysis, Corporate Advisory, and System Audits.</p>
-  </div>
-  <div class="card">
-    <h3>📚 BBS / BBA Students</h3>
-    <p>Internship opportunities to build a strong foundation in accounting, tax compliance, and corporate culture.</p>
-  </div>
-</div>
-
 ### 3. Clear Career Path
 From "Associate" to "Partner," your growth trajectory is transparent. We have a policy of promoting from within—50% of our current managers started as interns.
 

@@ -16,7 +16,7 @@ parent: About Us|/about/
 <div class="founder-layout">
   <div class="founder-content">
 
-"Since our inception in 2010, **Artha Advisory** has been guided by a singular vision: to empower the businesses of Nepal with financial integrity and strategic excellence. In a rapidly evolving economic landscape, we stand as a lighthouse of stability and foresight for our clients."
+"Since our inception in 2003, **Artha Advisory** has been guided by a singular vision: to empower the businesses of Nepal with financial integrity and strategic excellence. In a rapidly evolving economic landscape, we stand as a lighthouse of stability and foresight for our clients."
 
 At Artha Advisory, we believe that accounting is not just about numbers—it's about the stories behind them. Every audit we conduct and every tax strategy we develop is designed to foster sustainable growth and regulatory compliance for the organizations that drive our nation's progress.
 

@@ -1,7 +1,6 @@
 ---
-title: Tax Calendar
-icon: 🗓️
-parent: Tools|/resources/tools/
+title: Nepal Tax & Compliance Calendar 2081/82
+description: Stay compliant with our comprehensive Nepal tax calendar. Track deadlines for TDS, VAT, income tax filings, and company registration renewals.
 sidebar: false
 ---
 Stay compliant with key tax deadlines.

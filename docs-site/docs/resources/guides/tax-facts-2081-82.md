@@ -1,6 +1,6 @@
 ---
-title: Nepal Tax Facts 2081/82
-description: Quick reference card for tax rates, thresholds, and deductions.
+title: Nepal Tax Facts 2081/82 - Quick Reference
+description: A quick reference guide to personal income tax slabs, corporate tax rates, and VAT requirements in Nepal for FY 2081/82.
 icon: 📊
 parent: Resources|/resources/
 image: /images/headers/service-tax.jpg

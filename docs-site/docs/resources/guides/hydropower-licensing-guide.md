@@ -1,6 +1,6 @@
 ---
-title: Hydropower Licensing Guide
-description: Steps to obtain Survey, Generation, and PPA licenses
+title: Hydropower Licensing & Tax Guide - Nepal
+description: Technical guide on licensing, PPA procedures, and tax exemptions for hydropower projects in Nepal.
 icon: ⚡
 parent: Resources|/resources/
 image: /images/industries/ind-hydro.jpg

@@ -1,5 +1,6 @@
 ---
 title: Privacy Policy
+description: Learn how Artha Advisory collects, uses, and protects your personal and financial data in compliance with Nepal's data protection standards.
 sidebar: false
 ---
 
