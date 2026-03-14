@@ -9,7 +9,17 @@ export default withMermaid(defineConfig({
     const description = pageData.frontmatter.description || pageData.description || "Nepal's Leading Tax & Audit Firm"
     const title = pageData.frontmatter.title ? `${pageData.frontmatter.title} | Artha Advisory` : 'Artha Advisory'
     pageData.frontmatter.head ??= []
+    
+    // Canonical Tag Implementation
+    let path = pageData.relativePath.replace(/\.md$/, '')
+    if (path.endsWith('index')) {
+      path = path.slice(0, -5)
+    }
+    const slug = path.replace(/\/$/, '')
+    const canonicalUrl = `https://arthaadvisory.com.np${slug ? '/' + slug : ''}`
+    
     pageData.frontmatter.head.push(
+      ['link', { rel: 'canonical', href: canonicalUrl }],
       ['meta', { property: 'og:image', content: `https://arthaadvisory.com.np${imageUrl}` }],
       ['meta', { property: 'og:title', content: title }],
       ['meta', { property: 'og:description', content: description }],
@@ -55,22 +65,6 @@ export default withMermaid(defineConfig({
       label: 'English',
       lang: 'en',
     },
-  },
-
-  // SEO: Inject Canonical Tags
-  transformHtml(code, id, { pageData }) {
-    if (!/[\\/]404\.html$/.test(id)) {
-      let path = pageData.relativePath.replace(/\.md$/, '')
-      if (path.endsWith('index')) {
-        path = path.slice(0, -5)
-      }
-      // Remove trailing slash for consistency with cleanUrls
-      const canonicalUrl = `https://arthaadvisory.com.np/${path}`.replace(/\/$/, '')
-      return code.replace(
-        '</head>',
-        `<link rel="canonical" href="${canonicalUrl}">\n</head>`
-      )
-    }
   },
 
   head: [
@@ -306,7 +300,6 @@ export default withMermaid(defineConfig({
         output: {
           manualChunks(id) {
             if (id.includes('node_modules')) {
-              if (id.includes('mermaid')) return 'vendor-mermaid'
               if (id.includes('medium-zoom')) return 'vendor-zoom'
             }
           }
